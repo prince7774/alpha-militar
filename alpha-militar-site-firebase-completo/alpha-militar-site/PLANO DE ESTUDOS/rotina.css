@@ -1,0 +1,829 @@
+:root {
+  --bg: #0b111a;
+  --panel: #121c2b;
+  --panel2: #172436;
+  --line: rgba(255,255,255,.1);
+  --text: #f8fafc;
+  --muted: #c8d2df;
+  --green: #4b947e;
+  --green2: #25634f;
+  --gold: #d6b64c;
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+
+.rotina-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  min-height: 76px;
+  padding: 14px 6%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: rgba(12,18,28,.94);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 230px;
+}
+.brand img, .rotina-footer img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+.brand strong { display: block; font-weight: 900; }
+.brand span { display: block; color: var(--muted); font-size: 12px; margin-top: 3px; }
+
+.rotina-nav {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+.rotina-nav a {
+  color: #dce6f3;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 11px 12px;
+  border-radius: 10px;
+}
+.rotina-nav a:hover { background: rgba(255,255,255,.08); color: var(--gold); }
+
+.btn-voltar, .btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.btn-voltar, .primario {
+  background: var(--green);
+  color: #fff;
+}
+.secundario {
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  border: 1px solid var(--line);
+}
+
+.hero-rotina {
+  min-height: 620px;
+  padding: 98px 6%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) 420px;
+  align-items: center;
+  gap: 42px;
+  background:
+    linear-gradient(90deg, rgba(6,11,18,.9), rgba(6,11,18,.44)),
+    url("https://www.eb.mil.br/documents/d/noticias/espcex-2-jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.hero-texto { max-width: 820px; }
+.tag {
+  display: inline-block;
+  background: rgba(214,182,76,.14);
+  border: 1px solid rgba(214,182,76,.38);
+  color: #ffe58b;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+.hero-texto h1 {
+  font-size: clamp(38px, 6vw, 72px);
+  line-height: .98;
+  max-width: 900px;
+  margin-bottom: 22px;
+}
+.hero-texto p {
+  color: #e2e8f0;
+  font-size: 19px;
+  line-height: 1.65;
+  max-width: 720px;
+}
+.hero-acoes {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.painel-status {
+  background: rgba(18,28,43,.88);
+  border: 1px solid rgba(214,182,76,.28);
+  border-radius: 8px;
+  padding: 24px;
+  display: grid;
+  gap: 14px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.35);
+}
+.painel-status div {
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+}
+.painel-status span { color: var(--muted); font-weight: 800; font-size: 13px; }
+.painel-status strong { display: block; font-size: 30px; color: var(--gold); margin-top: 8px; }
+
+.secao { padding: 72px 6%; }
+.titulo-secao { max-width: 850px; margin-bottom: 30px; }
+.titulo-secao.linha {
+  max-width: none;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+.titulo-secao span, .titulo-card span {
+  color: var(--gold);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+.titulo-secao h2, .titulo-card h2, .timer-card h2 {
+  font-size: clamp(28px, 4vw, 46px);
+  margin: 8px 0 10px;
+}
+.titulo-secao p, .timer-card p { color: var(--muted); line-height: 1.65; }
+
+.painel-planejador { background: #101824; }
+.form-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .8fr 1fr auto;
+  gap: 16px;
+  align-items: end;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+}
+.form-grid label span {
+  display: block;
+  color: var(--muted);
+  font-weight: 900;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.form-grid select, .form-grid input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 8px;
+  padding: 0 12px;
+  background: #0c1420;
+  color: #fff;
+  outline: 0;
+}
+.gerar { height: 48px; }
+
+.semana-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(180px, 1fr));
+  gap: 14px;
+}
+.dia-card {
+  min-height: 300px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+}
+.dia-card.hoje { border-color: rgba(214,182,76,.75); box-shadow: 0 0 0 3px rgba(214,182,76,.12); }
+.dia-card h3 { font-size: 18px; margin-bottom: 6px; }
+.dia-card .carga { color: var(--gold); font-weight: 900; font-size: 13px; margin-bottom: 14px; }
+.bloco-estudo {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+.bloco-estudo input { margin-top: 3px; accent-color: var(--green); }
+.bloco-estudo strong { display: block; font-size: 13px; }
+.bloco-estudo span { display: block; color: var(--muted); font-size: 12px; margin-top: 3px; line-height: 1.35; }
+
+.grid-duplo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background: #101824;
+}
+.card-tarefa, .timer-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+}
+.checklist {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+.check-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.05);
+}
+.check-item input { accent-color: var(--green); }
+.lista-revisao {
+  margin-top: 20px;
+  display: grid;
+  gap: 14px;
+}
+.lista-revisao li {
+  list-style: none;
+  background: rgba(255,255,255,.05);
+  border-radius: 8px;
+  padding: 15px;
+  color: var(--muted);
+}
+.lista-revisao strong { color: #fff; }
+
+.timer-section { background: #0b111a; }
+.timer-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+}
+.timer-box { text-align: center; min-width: 330px; }
+.timer-box strong {
+  display: block;
+  font-size: clamp(54px, 8vw, 96px);
+  color: var(--gold);
+  line-height: 1;
+}
+.timer-controles {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.timer-controles button {
+  border: 0;
+  border-radius: 8px;
+  background: var(--green);
+  color: #fff;
+  padding: 11px 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.timer-controles button:nth-child(2) { background: #526070; }
+.timer-controles button:nth-child(3) { background: var(--danger); }
+
+.rotina-footer {
+  padding: 34px 6%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #050910;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-weight: 800;
+}
+
+@media (max-width: 1180px) {
+  .rotina-header { flex-wrap: wrap; }
+  .rotina-nav { order: 3; width: 100%; overflow-x: auto; }
+  .hero-rotina { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr 1fr; }
+  .semana-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-duplo { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .rotina-header { padding: 12px 18px; gap: 12px; }
+  .brand { min-width: 0; }
+  .brand span { display: none; }
+  .btn-voltar { margin-left: auto; }
+  .hero-rotina { padding: 70px 20px; min-height: auto; }
+  .secao { padding: 54px 20px; }
+  .form-grid, .semana-grid { grid-template-columns: 1fr; }
+  .titulo-secao.linha, .timer-card { display: block; }
+  .titulo-secao.linha .btn { margin-top: 14px; }
+  .timer-box { min-width: 0; margin-top: 24px; }
+  .rotina-footer { padding: 28px 20px; }
+}
+
+/* === RESPONSIVIDADE GLOBAL ALPHA MILITAR === */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  min-width: 0;
+}
+
+img,
+video,
+iframe,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+button,
+.btn,
+.btn-topo,
+.btn-voltar,
+.req-btn,
+.filtroBtn,
+.abrirMaterialBtn,
+.deathNoteBtn,
+.tab,
+.filter {
+  white-space: normal;
+}
+
+.card,
+.bleachCard,
+.package-card,
+.metric,
+.study-card,
+.chat-card,
+.plan,
+.panel,
+.stat-card,
+.discipline-card,
+.sim-card,
+.trail-card,
+.requisito-card,
+.concurso-card,
+.video-card,
+.card-material,
+.dia-card,
+.card-tarefa,
+.timer-card,
+.profile-card {
+  min-width: 0;
+}
+
+.tabela-provas,
+.table-wrap,
+.panel,
+.modal-box,
+.profile-page {
+  max-width: 100%;
+}
+
+@media (max-width: 1180px) {
+  .topo-curso,
+  .rotina-header {
+    height: auto !important;
+    min-height: 70px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .top-nav,
+  .rotina-nav {
+    order: 3;
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scrollbar-width: thin;
+  }
+
+  .top-nav a,
+  .rotina-nav a {
+    flex: 0 0 auto;
+  }
+
+  .hero,
+  .hero-content,
+  .hero-grid,
+  .hero-rotina,
+  .hero-curso,
+  .main-grid,
+  .split,
+  .grid-duplo,
+  .history-grid,
+  .profile-content,
+  .timer-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .stats-grid,
+  .dashboard-grid,
+  .cards-3,
+  .cards-grid,
+  .song-grid,
+  .sim-grid,
+  .trail-grid,
+  .achievements,
+  .profile-stats,
+  .requisitos-grid,
+  .video-grid,
+  .plano-grid,
+  .disciplinas-grid,
+  .portal-links,
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .semana-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .package-row,
+  .concursos-carousel {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: 15px;
+  }
+
+  .top-bar {
+    padding: 8px 14px !important;
+    gap: 6px 14px !important;
+    text-align: center;
+  }
+
+  .header,
+  .topo-curso,
+  .rotina-header {
+    padding: 12px 16px !important;
+    min-height: 64px !important;
+  }
+
+  .logo,
+  .brand {
+    min-width: 0 !important;
+    max-width: 100%;
+  }
+
+  .logo strong,
+  .brand strong {
+    white-space: normal !important;
+    line-height: 1.12;
+  }
+
+  .logo small,
+  .brand span {
+    display: none !important;
+  }
+
+  .logo-icon,
+  .brand img,
+  .footer-eb-logo {
+    width: 42px !important;
+    height: 42px !important;
+    flex: 0 0 42px !important;
+  }
+
+  h1,
+  .hero-curso h1,
+  .hero-texto h1 {
+    font-size: clamp(32px, 11vw, 46px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -1.2px !important;
+  }
+
+  h2,
+  .section h2,
+  .section-title h2,
+  .titulo-secao h2,
+  .onePieceTitulo,
+  .portal-titulo,
+  .requisitos-section h2 {
+    font-size: clamp(24px, 8vw, 34px) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.4px !important;
+  }
+
+  .hero,
+  .hero-content,
+  .hero-grid,
+  .hero-rotina,
+  .hero-curso,
+  .section,
+  .secao,
+  #attackTitan,
+  .portal-transparencia,
+  .concursos-section,
+  .requisitos-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .hero,
+  .hero-content,
+  .hero-grid,
+  .hero-rotina,
+  .hero-curso {
+    min-height: auto !important;
+    padding-top: 56px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .hero p,
+  .hero-texto p,
+  .hunterTexto,
+  .section-title p,
+  .titulo-secao p,
+  .panel p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .hero-buttons,
+  .hero-actions,
+  .hero-acoes,
+  .profile-actions,
+  .timer-controles,
+  .footer-bottom,
+  .titulo-secao.linha,
+  .section-title,
+  .linha,
+  .mission-head,
+  .card-top,
+  .goal-head,
+  .timer-card,
+  .chat-input {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .hero-buttons .btn,
+  .hero-actions .btn,
+  .hero-acoes .btn,
+  .profile-actions button,
+  .timer-controles button,
+  .btn,
+  .btn-topo,
+  .btn-voltar,
+  .req-btn {
+    width: 100%;
+  }
+
+  .stats-grid,
+  .dashboard-grid,
+  .cards-3,
+  .cards-grid,
+  .song-grid,
+  .sim-grid,
+  .trail-grid,
+  .achievements,
+  .profile-stats,
+  .requisitos-grid,
+  .video-grid,
+  .plano-grid,
+  .disciplinas-grid,
+  .portal-links,
+  .footer-links,
+  .subjects,
+  .discipline-grid,
+  .check-grid,
+  .semana-grid,
+  .form-grid,
+  .plans,
+  .main-grid,
+  .history-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dragonBallGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .bleachCard img {
+    height: 230px !important;
+    object-fit: contain !important;
+  }
+
+  .filtroMilitar,
+  .tabs,
+  .filters {
+    justify-content: stretch !important;
+  }
+
+  .filtroBtn,
+  .tab,
+  .filter,
+  .filters input,
+  .filters select,
+  .form-grid input,
+  .form-grid select {
+    width: 100% !important;
+  }
+
+  .panel,
+  .hero-panel,
+  .mission-card,
+  .profile-card,
+  .modal-box,
+  .login-modal,
+  .card,
+  .bleachCard,
+  .stat-card,
+  .discipline-card,
+  .sim-card,
+  .trail-card,
+  .requisito-card,
+  .card-material,
+  .video-card,
+  .dia-card,
+  .timer-card,
+  .card-tarefa {
+    border-radius: 16px !important;
+    padding: 18px !important;
+  }
+
+  .bleachCard {
+    padding: 0 !important;
+  }
+
+  .bleachCard .card-body {
+    padding: 14px !important;
+  }
+
+  .footer,
+  .footer-curso,
+  .footer-eb,
+  .rotina-footer {
+    padding: 28px 16px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 22px !important;
+  }
+
+  .footer-social {
+    flex-wrap: wrap;
+    gap: 14px !important;
+  }
+
+  .portal-destaque {
+    grid-column: auto !important;
+    width: auto !important;
+  }
+
+  .timeline div,
+  .linha-prova {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tabela-provas,
+  .history-grid,
+  .panel {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 560px;
+  }
+
+  .modal,
+  .login-overlay,
+  .profile-overlay {
+    padding: 12px !important;
+  }
+
+  .profile-header {
+    padding: 0 18px 22px !important;
+    margin-top: -42px !important;
+  }
+
+  .profile-avatar {
+    width: 92px !important;
+    height: 92px !important;
+    border-radius: 20px !important;
+  }
+
+  .profile-stats,
+  .profile-content,
+  .profile-actions {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .side-toggle {
+    width: 42px !important;
+    height: 42px !important;
+    top: 12px !important;
+    left: 12px !important;
+  }
+
+  .pro-sidebar {
+    width: calc(100vw - 24px) !important;
+    left: calc(-100vw - 24px) !important;
+    top: 12px !important;
+    height: calc(100vh - 24px) !important;
+    border-radius: 18px !important;
+  }
+
+  .pro-sidebar.ativo {
+    left: 12px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .dragonBallGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .bleachCard img {
+    height: 300px !important;
+  }
+
+  .top-bar {
+    font-size: 12px !important;
+  }
+
+  .logo strong,
+  .brand strong {
+    font-size: 15px !important;
+  }
+
+  .hero-stats div,
+  .indicadores div {
+    width: 100%;
+  }
+}
+/* === FIM RESPONSIVIDADE GLOBAL ALPHA MILITAR === */
+
+/* Ajustes finais de responsividade */
+@media (max-width: 760px) {
+  .pro-sidebar:not(.ativo) {
+    transform: translateX(calc(-100% - 32px)) !important;
+    left: 12px !important;
+  }
+}
+
+@media (min-width: 1181px) {
+  .semana-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  .semana-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .semana-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Corre??o do menu mobile da home: fechado sem criar scroll horizontal */
+@media (max-width: 1180px) {
+  .header .nav {
+    right: 0 !important;
+    transform: translateX(110%) !important;
+    will-change: transform;
+  }
+
+  .header .nav.active {
+    right: 0 !important;
+    transform: translateX(0) !important;
+  }
+}
+

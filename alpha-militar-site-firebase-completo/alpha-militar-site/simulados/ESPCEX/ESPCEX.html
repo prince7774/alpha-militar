@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESPCEX | Alpha Militar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ESPCEX.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <header class="topo-curso">
+    <a href="index.html" class="brand">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/EsPCEx%207.png" alt="Logo da ESPCEX">
+      <div>
+        <strong>Alpha Militar</strong>
+        <span>Preparação séria para concursos militares</span>
+      </div>
+    </a>
+
+    <nav class="top-nav">
+      <a href="#simulados">Simulados</a>
+      <a href="#videoaulas">Videoaulas</a>
+      <a href="#provas">Provas</a>
+      <a href="#plano">Plano</a>
+    </nav>
+
+    <div class="topo-acoes">
+      <button type="button" class="btn-voltar" onclick="window.location.href='../../simulados.html'">Voltar</button>
+      <a href="#simulados" class="btn-topo">Começar agora</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-curso">
+      <div class="hero-conteudo">
+
+<div class="hero-logo-esa">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/EsPCEx%207.png" alt="Logo da ESPCEX">
+  
+</div>
+
+
+        <span class="tag">ESPCEX</span>
+        <h1>Preparação completa para a Escola Preparatória de Cadetes do Exército (ESPCEX)</h1>
+        <p>
+          Uma página focada para o aluno estudar para a ESPCEX com simulados, videoaulas, provas anteriores, gabaritos, matérias e plano semanal.
+        </p>
+
+        <div class="hero-acoes">
+          <a href="#simulados" class="btn primario">Iniciar simulado</a>
+          
+        </div>
+
+      
+      </div>
+    </section>
+
+    <section class="secao" id="disciplinas">
+      <div class="titulo-secao">
+        <span>Base forte</span>
+        <h2>Disciplinas da ESPCEX</h2>
+        <p>Organize seus estudos pelas matérias mais importantes da preparação.</p>
+      </div>
+
+            <div class="disciplinas-grid">
+        <button>Portugu&#234;s</button>
+        <button>Reda&#231;&#227;o</button>
+        <button>F&#237;sica</button>
+        <button>Qu&#237;mica</button>
+        <button>Matem&#225;tica</button>
+        <button>Geografia</button>
+        <button>Hist&#243;ria</button>
+        <button>Ingl&#234;s</button>
+      </div>
+    </section>
+
+    <section class="secao" id="simulados">
+      <div class="titulo-secao linha">
+        <div>
+          <span>Treinamento</span>
+          <h2>Simulados ESPCEX</h2>
+          <p>Escolha um simulado e acompanhe sua evolução.</p>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card-material">
+          <h3>Diagnóstico ESPCEX</h3>
+          <p>Teste inicial para identificar seus pontos fortes e fracos.</p>
+          <div class="card-meta"><span>50 questões</span><span>2h30</span></div>
+          <button onclick="abrirSimulado('Diagnóstico ESPCEX')">Iniciar</button>
+        </article>
+        <article class="card-material">
+          <h3>Simulado ESPCEX 01</h3>
+          <p>Modelo completo com questões de nível básico a intermediário.</p>
+          <div class="card-meta"><span>50 questões</span><span>2h30</span></div>
+          <button onclick="abrirSimulado('Simulado ESPCEX 01')">Iniciar</button>
+        </article>
+        <article class="card-material">
+          <h3>Simulado ESPCEX 02</h3>
+          <p>Treino com foco em matemática, português e interpretação.</p>
+          <div class="card-meta"><span>50 questões</span><span>2h30</span></div>
+          <button onclick="abrirSimulado('Simulado ESPCEX 02')">Iniciar</button>
+        </article>
+      </div>
+    </section>
+
+<section id="videoaulas" class="secao">
+  <div class="titulo-secao">
+    <span>Videoaulas</span>
+    <h2>Aulas organizadas por matéria</h2>
+    <p>Assista às aulas das matérias cobradas da ESPCEX.</p>
+  </div>
+
+  <div class="video-grid">
+    <article class="video-card">
+      <img src="https://i.pinimg.com/736x/76/19/82/761982e19b990e747bb22999911e9811.jpg" alt="Capa da aula de Portugu&#234;s">
+      <div class="video-info">
+        <span class="materia">PORTUGU&#202;S</span>
+        <h3>Portugu&#234;s</h3>
+        <p>Gram&#225;tica, interpreta&#231;&#227;o, literatura quando cobrada e quest&#245;es no padr&#227;o da ESPCEX.</p>
+        <a href="https://www.youtube.com/results?search_query=Portugu%C3%AAs%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="/alpha-militar-site-firebase-completo/imgs/REDA.png" alt="Capa da aula de Reda&#231;&#227;o">
+      <div class="video-info">
+        <span class="materia">REDA&#199;&#195;O</span>
+        <h3>Reda&#231;&#227;o</h3>
+        <p>Produ&#231;&#227;o textual, estrutura dissertativa e treino de temas no padr&#227;o da ESPCEX.</p>
+        <a href="https://www.youtube.com/results?search_query=Reda%C3%A7%C3%A3o%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="data:image/png;base64,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" alt="Capa da aula de F&#237;sica">
+      <div class="video-info">
+        <span class="materia">F&#205;SICA</span>
+        <h3>F&#237;sica</h3>
+        <p>Mec&#226;nica, eletricidade, ondas, &#243;ptica e termologia no padr&#227;o da ESPCEX.</p>
+        <a href="https://www.youtube.com/results?search_query=F%C3%ADsica%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="https://static.vecteezy.com/ti/vetor-gratis/p1/5590793-quimica-laboratorio-educacao-conceito-vetor.jpg" alt="Capa da aula de Qu&#237;mica">
+      <div class="video-info">
+        <span class="materia">QU&#205;MICA</span>
+        <h3>Qu&#237;mica</h3>
+        <p>Qu&#237;mica geral, f&#237;sico-qu&#237;mica e org&#226;nica no padr&#227;o da ESPCEX.</p>
+        <a href="https://www.youtube.com/results?search_query=Qu%C3%ADmica%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="https://cdn.eadplataforma.app/client/cursoscae/upload/product/photo/091220211639102127capaespcexaplicadomat.jpg" alt="Capa da aula de Matem&#225;tica">
+      <div class="video-info">
+        <span class="materia">MATEM&#193;TICA</span>
+        <h3>Matem&#225;tica</h3>
+        <p>Teoria, exerc&#237;cios e quest&#245;es no padr&#227;o da ESPCEX.</p>
+        <a href="https://www.youtube.com/results?search_query=Matem%C3%A1tica%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="data:image/jpeg;base64,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" alt="Capa da aula de Geografia">
+      <div class="video-info">
+        <span class="materia">GEOGRAFIA</span>
+        <h3>Geografia</h3>
+        <p>Geografia geral e do Brasil conforme cobran&#231;a da ESPCEX.</p>
+        <a href="https://www.youtube.com/results?search_query=Geografia%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="https://s1.static.brasilescola.uol.com.br/be/conteudo/images/o-brasao-armas-um-dos-simbolos-nacionais-foi-adotado-com-proclamacao-republica-que-aconteceu-em-1889-5c190df23361b.jpg" alt="Capa da aula de Hist&#243;ria">
+      <div class="video-info">
+        <span class="materia">HIST&#211;RIA</span>
+        <h3>Hist&#243;ria</h3>
+        <p>Hist&#243;ria geral e do Brasil conforme cobran&#231;a da ESPCEX.</p>
+        <a href="https://www.youtube.com/results?search_query=Hist%C3%B3ria%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="https://img.magnific.com/vetores-gratis/design-de-ilustracao-de-livro-em-ingles_23-2149509019.jpg?w=360" alt="Capa da aula de Ingl&#234;s">
+      <div class="video-info">
+        <span class="materia">INGL&#202;S</span>
+        <h3>Ingl&#234;s</h3>
+        <p>Vocabul&#225;rio, leitura e interpreta&#231;&#227;o em l&#237;ngua estrangeira no padr&#227;o da ESPCEX.</p>
+        <a href="https://www.youtube.com/results?search_query=Ingl%C3%AAs%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+  </div>
+</section>
+<div id="provas" class="tabela-provas tabela-provas-completa">
+        <div class="linha-prova cabecalho">
+            <span>Ano</span>
+            <span>Visualizar</span>
+            <span>Baixar</span>
+        </div>
+
+        <div class="linha-prova">
+            <strong>EsPCEx 2025</strong>
+
+            <div class="acoes-prova">
+            <a href="provas/2025-modelo-a-1-dia-de-prova.pdf" target="_blank" rel="noopener">Ver modelo A - 1o dia</a>
+            <a href="provas/2025-modelo-d-2-dia-de-prova.pdf" target="_blank" rel="noopener">Ver modelo D - 2o dia</a>
+            <a href="gabaritos/2025-gabarito-1-dia-de-prova.pdf" target="_blank" rel="noopener">Ver gabarito - 1o dia</a>
+            <a href="gabaritos/2025-gabarito-2-dia-de-prova.pdf" target="_blank" rel="noopener">Ver gabarito - 2o dia</a>
+            </div>
+
+            <div class="acoes-prova">
+            <a href="provas/2025-modelo-a-1-dia-de-prova.pdf" download>Baixar modelo A - 1o dia</a>
+            <a href="provas/2025-modelo-d-2-dia-de-prova.pdf" download>Baixar modelo D - 2o dia</a>
+            <a href="gabaritos/2025-gabarito-1-dia-de-prova.pdf" download>Baixar gabarito - 1o dia</a>
+            <a href="gabaritos/2025-gabarito-2-dia-de-prova.pdf" download>Baixar gabarito - 2o dia</a>
+            </div>
+        </div>
+        <div class="linha-prova">
+            <strong>EsPCEx 2024</strong>
+
+            <div class="acoes-prova">
+            <a href="provas/2024-modelo-a-1-dia-de-prova.pdf" target="_blank" rel="noopener">Ver modelo A - 1o dia</a>
+            <a href="provas/2024-modelo-d-2-dia-de-prova.pdf" target="_blank" rel="noopener">Ver modelo D - 2o dia</a>
+            <a href="gabaritos/2024-gabarito-1-dia-de-prova.pdf" target="_blank" rel="noopener">Ver gabarito - 1o dia</a>
+            <a href="gabaritos/2024-gabarito-2-dia-de-prova.pdf" target="_blank" rel="noopener">Ver gabarito - 2o dia</a>
+            </div>
+
+            <div class="acoes-prova">
+            <a href="provas/2024-modelo-a-1-dia-de-prova.pdf" download>Baixar modelo A - 1o dia</a>
+            <a href="provas/2024-modelo-d-2-dia-de-prova.pdf" download>Baixar modelo D - 2o dia</a>
+            <a href="gabaritos/2024-gabarito-1-dia-de-prova.pdf" download>Baixar gabarito - 1o dia</a>
+            <a href="gabaritos/2024-gabarito-2-dia-de-prova.pdf" download>Baixar gabarito - 2o dia</a>
+            </div>
+        </div>
+        <div class="linha-prova">
+            <strong>EsPCEx 2023</strong>
+
+            <div class="acoes-prova">
+            <a href="provas/2023-modelo-a-1-dia-de-prova.pdf" target="_blank" rel="noopener">Ver modelo A - 1o dia</a>
+            <a href="provas/2023-modelo-d-2-dia-de-prova.pdf" target="_blank" rel="noopener">Ver modelo D - 2o dia</a>
+            <a href="gabaritos/2023-gabarito-1-dia-de-prova.pdf" target="_blank" rel="noopener">Ver gabarito - 1o dia</a>
+            <a href="gabaritos/2023-gabarito-2-dia-de-prova.pdf" target="_blank" rel="noopener">Ver gabarito - 2o dia</a>
+            </div>
+
+            <div class="acoes-prova">
+            <a href="provas/2023-modelo-a-1-dia-de-prova.pdf" download>Baixar modelo A - 1o dia</a>
+            <a href="provas/2023-modelo-d-2-dia-de-prova.pdf" download>Baixar modelo D - 2o dia</a>
+            <a href="gabaritos/2023-gabarito-1-dia-de-prova.pdf" download>Baixar gabarito - 1o dia</a>
+            <a href="gabaritos/2023-gabarito-2-dia-de-prova.pdf" download>Baixar gabarito - 2o dia</a>
+            </div>
+        </div>
+        <div class="linha-prova">
+            <strong>EsPCEx 2022</strong>
+
+            <div class="acoes-prova">
+            <a href="provas/2022 PROVA DIA 1 MODELO A.pdf" target="_blank" rel="noopener">Ver modelo A - 1o dia</a>
+            <a href="provas/2022 PROVA DIA 1 MODELO B.pdf" target="_blank" rel="noopener">Ver modelo B - 1o dia</a>
+            <a href="provas/2022 PROVA DIA 1 MODELO C.pdf" target="_blank" rel="noopener">Ver modelo C - 1o dia</a>
+            <a href="provas/2022 PROVA DIA 2 MODELO D.pdf" target="_blank" rel="noopener">Ver modelo D - 2o dia</a>
+            <a href="provas/2022 PROVA DIA 2 MODELO E.pdf" target="_blank" rel="noopener">Ver modelo E - 2o dia</a>
+            <a href="provas/2022 PROVA DIA 2 MODELO F.pdf" target="_blank" rel="noopener">Ver modelo F - 2o dia</a>
+            <a href="gabaritos/2022-gabarito-1-dia-de-prova.pdf" target="_blank" rel="noopener">Ver gabarito - 1o dia</a>
+            <a href="gabaritos/2022-gabarito-2-dia-de-prova.pdf" target="_blank" rel="noopener">Ver gabarito - 2o dia</a>
+            </div>
+
+            <div class="acoes-prova">
+            <a href="provas/2022 PROVA DIA 1 MODELO A.pdf" download>Baixar modelo A - 1o dia</a>
+            <a href="provas/2022 PROVA DIA 1 MODELO B.pdf" download>Baixar modelo B - 1o dia</a>
+            <a href="provas/2022 PROVA DIA 1 MODELO C.pdf" download>Baixar modelo C - 1o dia</a>
+            <a href="provas/2022 PROVA DIA 2 MODELO D.pdf" download>Baixar modelo D - 2o dia</a>
+            <a href="provas/2022 PROVA DIA 2 MODELO E.pdf" download>Baixar modelo E - 2o dia</a>
+            <a href="provas/2022 PROVA DIA 2 MODELO F.pdf" download>Baixar modelo F - 2o dia</a>
+            <a href="gabaritos/2022-gabarito-1-dia-de-prova.pdf" download>Baixar gabarito - 1o dia</a>
+            <a href="gabaritos/2022-gabarito-2-dia-de-prova.pdf" download>Baixar gabarito - 2o dia</a>
+            </div>
+        </div>
+        <div class="linha-prova">
+            <strong>EsPCEx 2021</strong>
+
+            <div class="acoes-prova">
+            <a href="provas/2021 - EsPCEx - PORTFISQUI - MODELO A.pdf" target="_blank" rel="noopener">Ver modelo A - 1o dia</a>
+            <a href="provas/2021 PROVA DIA 1 MODELO B.pdf" target="_blank" rel="noopener">Ver modelo B - 1o dia</a>
+            <a href="provas/2021 PROVA DIA 1 MODELO C.pdf" target="_blank" rel="noopener">Ver modelo C - 1o dia</a>
+            <a href="provas/2021 - EsPCEx - MATGEOHISING- MODELO D.pdf" target="_blank" rel="noopener">Ver modelo D - 2o dia</a>
+            <a href="provas/2021 PROVA DIA 2 MODELO E.pdf" target="_blank" rel="noopener">Ver modelo E - 2o dia</a>
+            <a href="provas/2021 PROVA DIA 2 MODELO F.pdf" target="_blank" rel="noopener">Ver modelo F - 2o dia</a>
+            <a href="gabaritos/2021-gabarito-1-dia-de-prova.pdf" target="_blank" rel="noopener">Ver gabarito - 1o dia</a>
+            <a href="gabaritos/2021-gabarito-2-dia-de-prova.pdf" target="_blank" rel="noopener">Ver gabarito - 2o dia</a>
+            </div>
+
+            <div class="acoes-prova">
+            <a href="provas/2021 - EsPCEx - PORTFISQUI - MODELO A.pdf" download>Baixar modelo A - 1o dia</a>
+            <a href="provas/2021 PROVA DIA 1 MODELO B.pdf" download>Baixar modelo B - 1o dia</a>
+            <a href="provas/2021 PROVA DIA 1 MODELO C.pdf" download>Baixar modelo C - 1o dia</a>
+            <a href="provas/2021 - EsPCEx - MATGEOHISING- MODELO D.pdf" download>Baixar modelo D - 2o dia</a>
+            <a href="provas/2021 PROVA DIA 2 MODELO E.pdf" download>Baixar modelo E - 2o dia</a>
+            <a href="provas/2021 PROVA DIA 2 MODELO F.pdf" download>Baixar modelo F - 2o dia</a>
+            <a href="gabaritos/2021-gabarito-1-dia-de-prova.pdf" download>Baixar gabarito - 1o dia</a>
+            <a href="gabaritos/2021-gabarito-2-dia-de-prova.pdf" download>Baixar gabarito - 2o dia</a>
+            </div>
+        </div>    </div></main>
+
+  <div class="modal-simulado" id="modalSimulado">
+    <div class="modal-box">
+      <button onclick="fecharSimulado()" class="fechar">×</button>
+      <h2 id="tituloSimulado">Simulado ESPCEX</h2>
+      <p>Exemplo de sistema. Você pode trocar as questões no arquivo <b>curso-esa.js</b>.</p>
+
+      <div id="questaoBox" class="questao-box"></div>
+      <button onclick="corrigirSimulado()" class="btn primario full">Corrigir simulado</button>
+      <div id="resultado" class="resultado"></div>
+    </div>
+  </div>
+
+
+  <footer class="footer-eb">
+
+  <div class="footer-top">
+    <img
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/EsPCEx%207.png"
+      alt="Logo da ESPCEX"
+      class="footer-eb-logo"
+    >
+  </div>
+
+  <div class="footer-links">
+
+    <div>
+      <h4>JUNTE-SE A NÓS</h4>
+      <a href="#">Militar de Carreira</a>
+      <a href="#">Colégio Militar</a>
+    </div>
+
+    <div>
+      <h4>RESERVA PRÓ-ATIVA</h4>
+      <a href="#">Cadastre-se</a>
+      <a href="#">Informativo</a>
+      <a href="#">Entre em Contato</a>
+    </div>
+
+  
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <div>
+      <h4>REDES SOCIAIS</h4>
+
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fas fa-link"></i></a>
+      </div>
+    </div>
+
+    <div class="acesso-info">
+      <div class="info-icon">i</div>
+
+      <div>
+        <strong>Acesso à</strong>
+        <span>Informação</span>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+  <script src="curso-esa.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

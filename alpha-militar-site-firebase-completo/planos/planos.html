@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpha Militar | TFM e Vida Militar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="planos.css">
+</head>
+<body>
+  <div class="top-bar">
+    <span>🪖 Alpha Militar</span>
+    <span id="clock">Carregando...</span>
+    <span><i class="live-dot"></i> TFM e vida militar ativo</span>
+  </div>
+
+  <header class="header">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">A</span>
+      <div><strong>Alpha Militar</strong><small>TFM • Canções • Disciplina</small></div>
+    </a>
+
+    <nav class="nav">
+      <a href="#tfm">TFM</a>
+      <a href="#cancoes">Canções</a>
+      <a href="#rotina">Rotina</a>
+      <a href="#valores">Valores</a>
+      <a href="#checklist">Checklist</a>
+    </nav>
+
+    <a href="/alpha-militar-site-firebase-completo/alpha-militar-site/index.html" class="btn outline">Voltar</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        
+        <h1>Treino físico, disciplina, canções e mentalidade para ser militar.</h1>
+        <p>Uma área completa para preparar o aluno fisicamente e mentalmente: TFM, corrida, flexão, abdominal, barra, marcha, canções militares, rotina e valores essenciais.</p>
+        <div class="hero-actions">
+          <a href="#tfm" class="btn primary">Começar TFM</a>
+          <a href="#cancoes" class="btn outline">Ver canções</a>
+        </div>
+      </div>
+
+
+    </section>
+
+    <section class="section" id="tfm">
+      <div class="section-title">
+        <div><span>Treinamento físico militar</span><h2>Planos de TFM</h2></div>
+        <p>Treinos por nível. O aluno deve respeitar o próprio limite, aquecer e evoluir aos poucos.</p>
+      </div>
+
+      <div class="filters">
+        <button class="filter active" onclick="filtrarTreino('todos', this)">Todos</button>
+        <button class="filter" onclick="filtrarTreino('iniciante', this)">Iniciante</button>
+        <button class="filter" onclick="filtrarTreino('intermediario', this)">Intermediário</button>
+        <button class="filter" onclick="filtrarTreino('avancado', this)">Avançado</button>
+      </div>
+
+      <div class="cards-grid" id="treinoGrid"></div>
+    </section>
+
+    <section class="section dark" id="cancoes">
+      <div class="section-title">
+        <div><span>Tradição e vibração</span><h2>Canções militares</h2></div>
+        <p>Canções, hinos e brados para motivação, disciplina e espírito de corpo.</p>
+      </div>
+      <div class="song-grid" id="songGrid"></div>
+    </section>
+
+    <section class="section" id="rotina">
+      <div class="section-title">
+        <div><span>Disciplina diária</span><h2>Rotina de preparação</h2></div>
+        <p>Sugestão de rotina para criar constância e mentalidade militar.</p>
+      </div>
+
+      <div class="timeline">
+        <div><strong>05:30</strong><span>Acordar, arrumar cama e higiene</span></div>
+        <div><strong>06:00</strong><span>Corrida ou caminhada rápida</span></div>
+        <div><strong>06:40</strong><span>Flexão, abdominal e mobilidade</span></div>
+        <div><strong>08:00</strong><span>Estudo teórico: Matemática e Português</span></div>
+        <div><strong>14:00</strong><span>Questões e revisão dos erros</span></div>
+        <div><strong>19:00</strong><span>Leitura, canções e mentalidade militar</span></div>
+      </div>
+    </section>
+
+    <section class="section split" id="valores">
+      <div class="panel">
+        <span class="tag">🧭 Valores militares</span>
+        <h2>O que formar no aluno</h2>
+        <ul class="value-list">
+          <li>✅ Disciplina</li>
+          <li>✅ Respeito à hierarquia</li>
+          <li>✅ Pontualidade</li>
+          <li>✅ Responsabilidade</li>
+          <li>✅ Espírito de corpo</li>
+          <li>✅ Coragem e resistência emocional</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <span class="tag">⚠️ Segurança</span>
+        <h2>Treino consciente</h2>
+        <p>Esta página é educativa. O aluno não deve exagerar. Dor forte, tontura, falta de ar anormal ou lesão são sinais para parar e procurar orientação profissional.</p>
+      </div>
+    </section>
+
+   
+  </main>
+
+  <footer class="footer">
+    <strong>Alpha Militar</strong>
+    <p>Disciplina, tecnologia e liderança para construir o futuro.</p>
+  </footer>
+
+  <script src="planos.js"></script>
+</body>
+</html>

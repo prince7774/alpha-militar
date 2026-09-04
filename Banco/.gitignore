@@ -1,0 +1,35 @@
+# Dependências
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Logs
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Builds
+dist/
+build/
+
+# Arquivos de credenciais
+serviceAccountKey.json
+firebase-adminsdk-*.json

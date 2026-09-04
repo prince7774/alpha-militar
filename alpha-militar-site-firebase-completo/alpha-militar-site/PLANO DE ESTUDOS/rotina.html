@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rotina EB | Alpha Militar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="rotina.css" />
+</head>
+<body>
+  <header class="rotina-header">
+    <a class="brand" href="../index.html" aria-label="Voltar para Alpha Militar">
+      <img src="../imgs/ff1c9a683b5c9a18466453bb0a6669ad-removebg-preview.png" alt="Alpha Militar">
+      <div>
+        <strong>Alpha Militar</strong>
+        <span>Rotina de estudos EB</span>
+      </div>
+    </a>
+
+    <nav class="rotina-nav" aria-label="Menu da rotina">
+      <a href="#planejador">Planejador</a>
+      <a href="#semana">Semana</a>
+      <a href="#missao">Missao diaria</a>
+      <a href="#timer">Timer</a>
+    </nav>
+
+    <a class="btn-voltar" href="../index.html">Voltar</a>
+  </header>
+
+  <main>
+    <section class="hero-rotina">
+      <div class="hero-texto">
+        <span class="tag">Organizacao de combate</span>
+        <h1>Rotina EB para estudar com disciplina todos os dias.</h1>
+        <p>Monte uma semana objetiva para ESA, EsPCEx, IME, NPOR, OTT/STT e demais concursos do Exército Brasileiro.</p>
+
+        <div class="hero-acoes">
+          <a class="btn primario" href="#planejador">Montar rotina</a>
+          <button class="btn secundario" type="button" onclick="imprimirRotina()">Imprimir</button>
+        </div>
+      </div>
+
+      <aside class="painel-status">
+        <div>
+          <span>Meta semanal</span>
+          <strong id="metaSemanalHero">24h</strong>
+        </div>
+        <div>
+          <span>Progresso</span>
+          <strong id="progressoHero">0%</strong>
+        </div>
+        <div>
+          <span>Dia atual</span>
+          <strong id="diaAtualHero">Hoje</strong>
+        </div>
+      </aside>
+    </section>
+
+    <section class="secao painel-planejador" id="planejador">
+      <div class="titulo-secao">
+        <span>Planejador</span>
+        <h2>Configure sua rotina</h2>
+        <p>Escolha o concurso, o tempo disponível e o foco principal. A rotina é montada automaticamente.</p>
+      </div>
+
+      <div class="form-grid">
+        <label>
+          <span>Concurso</span>
+          <select id="concursoSelect">
+            <option value="espcex">EsPCEx</option>
+            <option value="esa">ESA</option>
+            <option value="ime">IME</option>
+            <option value="npor">NPOR</option>
+            <option value="ott">OTT/STT</option>
+            <option value="geral">EB Geral</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Horas por semana</span>
+          <input id="horasSemana" type="number" min="6" max="60" value="24">
+        </label>
+
+        <label>
+          <span>Foco atual</span>
+          <select id="focoSelect">
+            <option value="equilibrado">Equilibrado</option>
+            <option value="exatas">Exatas</option>
+            <option value="linguagens">Português e Redação</option>
+            <option value="humanas">Humanas</option>
+          </select>
+        </label>
+
+        <button class="btn primario gerar" type="button" onclick="gerarRotina()">Gerar rotina</button>
+      </div>
+    </section>
+
+    <section class="secao" id="semana">
+      <div class="titulo-secao linha">
+        <div>
+          <span>Semana operacional</span>
+          <h2>Plano de estudos</h2>
+          <p>Use como base diária. Ajuste quando tiver simulado, prova ou revisão forte.</p>
+        </div>
+        <button class="btn secundario" type="button" onclick="resetarChecklist()">Limpar checks</button>
+      </div>
+
+      <div class="semana-grid" id="semanaGrid"></div>
+    </section>
+
+    <section class="secao grid-duplo" id="missao">
+      <article class="card-tarefa">
+        <div class="titulo-card">
+          <span>Checklist</span>
+          <h2>Missão diária</h2>
+        </div>
+        <div id="checklistDiario" class="checklist"></div>
+      </article>
+
+      <article class="card-tarefa">
+        <div class="titulo-card">
+          <span>Revisão</span>
+          <h2>Regra 24h / 7d / 30d</h2>
+        </div>
+        <ul class="lista-revisao">
+          <li><strong>24h:</strong> revise o resumo feito ontem.</li>
+          <li><strong>7 dias:</strong> refaça questões que você errou na semana.</li>
+          <li><strong>30 dias:</strong> simulado completo e análise dos pontos fracos.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="secao timer-section" id="timer">
+      <div class="timer-card">
+        <div>
+          <span class="tag">Foco</span>
+          <h2>Timer de missão</h2>
+          <p>Use blocos de estudo com pausa curta para manter constância.</p>
+        </div>
+
+        <div class="timer-box">
+          <strong id="timerDisplay">50:00</strong>
+          <div class="timer-controles">
+            <button type="button" onclick="iniciarTimer()">Iniciar</button>
+            <button type="button" onclick="pausarTimer()">Pausar</button>
+            <button type="button" onclick="resetarTimer()">Resetar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rotina-footer">
+    <img src="../imgs/ff1c9a683b5c9a18466453bb0a6669ad-removebg-preview.png" alt="Alpha Militar">
+    <p>Alpha Militar - disciplina, constância e execução.</p>
+  </footer>
+
+  <script src="rotina.js"></script>
+</body>
+</html>

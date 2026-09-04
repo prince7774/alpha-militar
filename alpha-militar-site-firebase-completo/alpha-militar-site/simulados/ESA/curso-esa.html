@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESA | Alpha Militar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="curso-esa.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <header class="topo-curso">
+    <a href="index.html" class="brand">
+      <img src="../../imgs/images-removebg-preview.png" alt="Logo da ESA">
+      <div>
+        <strong>Alpha Militar</strong>
+        <span>Preparação séria para concursos militares</span>
+      </div>
+    </a>
+
+    <nav class="top-nav">
+      <a href="#simulados">Simulados</a>
+      <a href="#videoaulas">Videoaulas</a>
+      <a href="#provas">Provas</a>
+      <a href="#plano">Plano</a>
+    </nav>
+
+    <div class="topo-acoes">
+      <button type="button" class="btn-voltar" onclick="window.location.href='../../simulados.html'">Voltar</button>
+      <a href="#simulados" class="btn-topo">Começar agora</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-curso">
+      <div class="hero-conteudo">
+
+<div class="hero-logo-esa">
+  <img src="../../imgs/images-removebg-preview.png" alt="Logo da ESA">
+  
+</div>
+
+
+        <span class="tag">ESA</span>
+        <h1>Preparação completa para a Escola de Sargentos das Armas (ESA)</h1>
+        <p>
+          Uma página focada para o aluno estudar para a ESA com simulados, videoaulas, provas anteriores, gabaritos, matérias e plano semanal.
+        </p>
+
+        <div class="hero-acoes">
+          <a href="#simulados" class="btn primario">Iniciar simulado</a>
+          
+        </div>
+
+      
+      </div>
+    </section>
+
+    <section class="secao" id="disciplinas">
+      <div class="titulo-secao">
+        <span>Base forte</span>
+        <h2>Disciplinas da ESA</h2>
+        <p>Organize seus estudos pelas matérias mais importantes da preparação.</p>
+      </div>
+
+            <div class="disciplinas-grid">
+        <button>Matem&#225;tica</button>
+        <button>Portugu&#234;s</button>
+        <button>Hist&#243;ria e Geografia do Brasil</button>
+        <button>Ingl&#234;s</button>
+        <button>Reda&#231;&#227;o</button>
+      </div>
+    </section>
+
+    <section class="secao" id="simulados">
+      <div class="titulo-secao linha">
+        <div>
+          <span>Treinamento</span>
+          <h2>Simulados ESA</h2>
+          <p>Escolha um simulado e acompanhe sua evolução.</p>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card-material">
+          <h3>Diagnóstico ESA</h3>
+          <p>Teste inicial para identificar seus pontos fortes e fracos.</p>
+          <div class="card-meta"><span>50 questões</span><span>2h30</span></div>
+          <button onclick="abrirSimulado('Diagnóstico ESA')">Iniciar</button>
+        </article>
+        <article class="card-material">
+          <h3>Simulado ESA 01</h3>
+          <p>Modelo completo com questões de nível básico a intermediário.</p>
+          <div class="card-meta"><span>50 questões</span><span>2h30</span></div>
+          <button onclick="abrirSimulado('Simulado ESA 01')">Iniciar</button>
+        </article>
+        <article class="card-material">
+          <h3>Simulado ESA 02</h3>
+          <p>Treino com foco em matemática, português e interpretação.</p>
+          <div class="card-meta"><span>50 questões</span><span>2h30</span></div>
+          <button onclick="abrirSimulado('Simulado ESA 02')">Iniciar</button>
+        </article>
+      </div>
+    </section>
+
+<section id="videoaulas" class="secao">
+  <div class="titulo-secao">
+    <span>Videoaulas</span>
+    <h2>Aulas organizadas por matéria</h2>
+    <p>Assista às aulas das matérias cobradas da ESA.</p>
+  </div>
+
+  <div class="video-grid">
+    <article class="video-card">
+      <img src="https://i.ytimg.com/vi/39ku1gKkWds/hq720.jpg" alt="Capa da aula de Matem&#225;tica">
+      <div class="video-info">
+        <span class="materia">MATEM&#193;TICA</span>
+        <h3>Matem&#225;tica</h3>
+        <p>Teoria, exerc&#237;cios e quest&#245;es no padr&#227;o da ESA.</p>
+        <a href="https://www.youtube.com/results?search_query=Matem%C3%A1tica%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSK46RLH4VMfc3jNg7FcBuceuYdoNSS82xOA&s" alt="Capa da aula de Portugu&#234;s">
+      <div class="video-info">
+        <span class="materia">PORTUGU&#202;S</span>
+        <h3>Portugu&#234;s</h3>
+        <p>Gram&#225;tica, interpreta&#231;&#227;o, literatura quando cobrada e quest&#245;es no padr&#227;o da ESA.</p>
+        <a href="https://www.youtube.com/results?search_query=Portugu%C3%AAs%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="https://i.ytimg.com/vi/odUKlgduFhU/maxresdefault.jpg" alt="Capa da aula de Hist&#243;ria e Geografia do Brasil">
+      <div class="video-info">
+        <span class="materia">HIST&#211;RIA E GEOGRAFIA DO BRASIL</span>
+        <h3>Hist&#243;ria e Geografia do Brasil</h3>
+        <p>Hist&#243;ria do Brasil e Geografia do Brasil conforme edital da ESA.</p>
+        <a href="https://www.youtube.com/results?search_query=Hist%C3%B3ria%20e%20Geografia%20do%20Brasil%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="https://img.magnific.com/vetores-gratis/design-de-ilustracao-de-livro-em-ingles_23-2149509019.jpg?w=360" alt="Capa da aula de Ingl&#234;s">
+      <div class="video-info">
+        <span class="materia">INGL&#202;S</span>
+        <h3>Ingl&#234;s</h3>
+        <p>Vocabul&#225;rio, leitura e interpreta&#231;&#227;o em l&#237;ngua estrangeira no padr&#227;o da ESA.</p>
+        <a href="https://www.youtube.com/results?search_query=Ingl%C3%AAs%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2j21JQBbZZ_xjPz0-9Fi5OKPLXmdRl9FarA&s" alt="Capa da aula de Reda&#231;&#227;o">
+      <div class="video-info">
+        <span class="materia">REDA&#199;&#195;O</span>
+        <h3>Reda&#231;&#227;o</h3>
+        <p>Produ&#231;&#227;o textual, estrutura dissertativa e treino de temas no padr&#227;o da ESA.</p>
+        <a href="https://www.youtube.com/results?search_query=Reda%C3%A7%C3%A3o%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+  </div>
+</section>
+<div id="provas" class="tabela-provas tabela-provas-completa">
+    <div class="linha-prova cabecalho">
+        <span>Ano</span>
+        <span>Visualizar</span>
+        <span>Baixar</span>
+    </div>
+
+    <div class="linha-prova">
+        <strong>ESA 2025</strong>
+
+        <div class="acoes-prova">
+            <a href="provas/prova-esa-2025.pdf" target="_blank">Ver prova</a>
+        </div>
+
+        <div class="acoes-prova">
+            <a href="provas/prova-esa-2025.pdf" download>Baixar prova</a>
+        </div>
+    </div>
+    <div class="linha-prova">
+        <strong>ESA 2024</strong>
+
+        <div class="acoes-prova">
+            <a href="provas/prova-esa-2024.pdf" target="_blank">Ver prova</a>
+        </div>
+
+        <div class="acoes-prova">
+            <a href="provas/prova-esa-2024.pdf" download>Baixar prova</a>
+        </div>
+    </div>
+    <div class="linha-prova">
+        <strong>ESA 2023</strong>
+
+        <div class="acoes-prova">
+            <a href="provas/2023 - PROVA - ESA.pdf" target="_blank">Ver prova</a>
+        </div>
+
+        <div class="acoes-prova">
+            <a href="provas/2023 - PROVA - ESA.pdf" download>Baixar prova</a>
+        </div>
+    </div>
+    <div class="linha-prova">
+        <strong>ESA 2022</strong>
+
+        <div class="acoes-prova">
+            <a href="provas/2022 - PROVA - ESA.pdf" target="_blank">Ver prova</a>
+        </div>
+
+        <div class="acoes-prova">
+            <a href="provas/2022 - PROVA - ESA.pdf" download>Baixar prova</a>
+        </div>
+    </div>
+    <div class="linha-prova">
+        <strong>ESA 2021</strong>
+
+        <div class="acoes-prova">
+            <a href="provas/2021 - PROVA - ESA.pdf" target="_blank">Ver prova</a>
+        </div>
+
+        <div class="acoes-prova">
+            <a href="provas/2021 - PROVA - ESA.pdf" download>Baixar prova</a>
+        </div>
+    </div></div>
+
+    
+  </main>
+
+  <div class="modal-simulado" id="modalSimulado">
+    <div class="modal-box">
+      <button onclick="fecharSimulado()" class="fechar">×</button>
+      <h2 id="tituloSimulado">Simulado ESA</h2>
+      <p>Exemplo de sistema. Você pode trocar as questões no arquivo <b>curso-esa.js</b>.</p>
+
+      <div id="questaoBox" class="questao-box"></div>
+      <button onclick="corrigirSimulado()" class="btn primario full">Corrigir simulado</button>
+      <div id="resultado" class="resultado"></div>
+    </div>
+  </div>
+
+
+  <footer class="footer-eb">
+
+  <div class="footer-top">
+    <img
+      src="../../imgs/images-removebg-preview.png"
+      alt="Logo da ESA"
+      class="footer-eb-logo"
+    >
+  </div>
+
+  <div class="footer-links">
+
+    <div>
+      <h4>JUNTE-SE A NÓS</h4>
+      <a href="#">Militar de Carreira</a>
+      <a href="#">Colégio Militar</a>
+    </div>
+
+    <div>
+      <h4>RESERVA PRÓ-ATIVA</h4>
+      <a href="#">Cadastre-se</a>
+      <a href="#">Informativo</a>
+      <a href="#">Entre em Contato</a>
+    </div>
+
+  
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <div>
+      <h4>REDES SOCIAIS</h4>
+
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fas fa-link"></i></a>
+      </div>
+    </div>
+
+    <div class="acesso-info">
+      <div class="info-icon">i</div>
+
+      <div>
+        <strong>Acesso à</strong>
+        <span>Informação</span>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+  <script src="curso-esa.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

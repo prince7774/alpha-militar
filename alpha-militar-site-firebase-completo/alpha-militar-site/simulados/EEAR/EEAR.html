@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EEAR | Alpha Militar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="EEAR.css?v=cards" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <header class="topo-curso">
+    <a href="index.html" class="brand">
+      <img src="/alpha-militar-site-firebase-completo/imgs/EEAR.png" alt="Logo da EEAR">
+      <div>
+        <strong>Alpha Militar</strong>
+        <span>Preparação séria para concursos militares</span>
+      </div>
+    </a>
+
+    <nav class="top-nav">
+      <a href="#simulados">Simulados</a>
+      <a href="#videoaulas">Videoaulas</a>
+      <a href="#provas">Provas</a>
+      <a href="#plano">Plano</a>
+    </nav>
+
+    <div class="topo-acoes">
+      <button type="button" class="btn-voltar" onclick="window.location.href='../../simulados.html'">Voltar</button>
+      <a href="#simulados" class="btn-topo">Começar agora</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-curso">
+      <div class="hero-conteudo">
+
+<div class="hero-logo-esa">
+  <img src="/alpha-militar-site-firebase-completo/imgs/EEAR.png" alt="Logo da EEAR">
+  
+</div>
+
+
+        <span class="tag">EEAR</span>
+        <h1>Preparação completa para Escola de Especialistas de Aeronáutica (EEAR)</h1>
+        <p>
+          Uma página focada para o aluno estudar com organização: simulados,
+          videoaulas, provas anteriores, gabaritos, matérias e plano semanal.
+        </p>
+
+        <div class="hero-acoes">
+          <a href="#simulados" class="btn primario">Iniciar simulado</a>
+          
+        </div>
+
+      
+      </div>
+    </section>
+
+    <section class="secao" id="disciplinas">
+      <div class="titulo-secao">
+        <span>Base forte</span>
+        <h2>Disciplinas da EEAR</h2>
+        <p>Organize seus estudos pelas 4 matérias da prova objetiva.</p>
+      </div>
+
+            <div class="disciplinas-grid">
+        <button>L&#237;ngua Portuguesa</button>
+        <button>L&#237;ngua Inglesa</button>
+        <button>Matem&#225;tica</button>
+        <button>F&#237;sica</button>
+      </div>
+    </section>
+
+    <section class="secao" id="simulados">
+      <div class="titulo-secao linha">
+        <div>
+          <span>Treinamento</span>
+          <h2>Simulados EEAR</h2>
+          <p>96 questões objetivas: 24 de Português, 24 de Inglês, 24 de Matemática e 24 de Física.</p>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card-material">
+          <h3>Diagnóstico EEAR</h3>
+          <p>Teste inicial para identificar seus pontos fortes e fracos.</p>
+          <div class="card-meta"><span>96 questões</span><span>2h30</span></div>
+          <button onclick="abrirSimulado('Simulado Diagnóstico EEAR')">Iniciar</button>
+        </article>
+        <article class="card-material">
+          <h3>Simulado EEAR 01</h3>
+          <p>Treino avançado com distribuição oficial por matéria.</p>
+          <div class="card-meta"><span>96 questões</span><span>2h30</span></div>
+          <button onclick="abrirSimulado('Simulado EEAR 01')">Iniciar</button>
+        </article>
+        <article class="card-material">
+          <h3>Simulado EEAR 02</h3>
+          <p>Segundo treino completo para resistência, revisão e velocidade.</p>
+          <div class="card-meta"><span>96 questões</span><span>2h30</span></div>
+          <button onclick="abrirSimulado('Simulado EEAR 02')">Iniciar</button>
+        </article>
+      </div>
+    </section>
+
+<section id="videoaulas" class="secao">
+  <div class="titulo-secao">
+    <span>Videoaulas</span>
+    <h2>Aulas organizadas por matéria</h2>
+    <p>Assista às aulas das matérias cobradas da EEAR.</p>
+  </div>
+
+  <div class="video-grid">
+    <article class="video-card">
+      <img src="/alpha-militar-site-firebase-completo/imgs/pt.jfif" alt="Capa da aula de L&#237;ngua Portuguesa">
+      <div class="video-info">
+        <span class="materia">L&#205;NGUA PORTUGUESA</span>
+        <h3>L&#237;ngua Portuguesa</h3>
+        <p>Gram&#225;tica, interpreta&#231;&#227;o, literatura quando cobrada e quest&#245;es no padr&#227;o da EEAR.</p>
+        <a href="https://www.youtube.com/results?search_query=L%C3%ADngua%20Portuguesa%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="https://img.magnific.com/vetores-gratis/design-de-ilustracao-de-livro-em-ingles_23-2149509019.jpg?w=360" alt="Capa da aula de L&#237;ngua Inglesa">
+      <div class="video-info">
+        <span class="materia">L&#205;NGUA INGLESA</span>
+        <h3>L&#237;ngua Inglesa</h3>
+        <p>Vocabul&#225;rio, leitura e interpreta&#231;&#227;o em l&#237;ngua estrangeira no padr&#227;o da EEAR.</p>
+        <a href="https://www.youtube.com/results?search_query=L%C3%ADngua%20Inglesa%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="/alpha-militar-site-firebase-completo/imgs/matematica aula.jfif" alt="Capa da aula de Matem&#225;tica">
+      <div class="video-info">
+        <span class="materia">MATEM&#193;TICA</span>
+        <h3>Matem&#225;tica</h3>
+        <p>Teoria, exerc&#237;cios e quest&#245;es no padr&#227;o da EEAR.</p>
+        <a href="https://www.youtube.com/results?search_query=Matem%C3%A1tica%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+    <article class="video-card">
+      <img src="https://images.tcdn.com.br/img/img_prod/598634/fisica_eear_6284669_1_20171113173448.jpg" alt="Capa da aula de F&#237;sica">
+      <div class="video-info">
+        <span class="materia">F&#205;SICA</span>
+        <h3>F&#237;sica</h3>
+        <p>Mec&#226;nica, eletricidade, ondas, &#243;ptica e termologia no padr&#227;o da EEAR.</p>
+        <a href="https://www.youtube.com/results?search_query=F%C3%ADsica%20concurso%20militar" target="_blank" class="btn-video">▶ Assistir Aula</a>
+      </div>
+    </article>
+  </div>
+</section>
+<div id="provas" class="tabela-provas tabela-provas-completa">
+    <div class="linha-prova cabecalho">
+        <span>Ano</span>
+        <span>Visualizar</span>
+        <span>Baixar</span>
+    </div>
+
+    <div class="linha-prova">
+        <strong>EEAR 2025</strong>
+
+        <div class="acoes-prova">
+            <a href="PROVAS COM GABARITO/EEAR 2025 CFS 1.pdf" target="_blank">Ver CFS 1</a>
+            <a href="PROVAS COM GABARITO/EEAR 2025.pdf" target="_blank">Ver CFS 2</a>
+        </div>
+
+        <div class="acoes-prova">
+            <a href="PROVAS COM GABARITO/EEAR 2025 CFS 1.pdf" download>Baixar CFS 1</a>
+            <a href="PROVAS COM GABARITO/EEAR 2025.pdf" download>Baixar CFS 2</a>
+        </div>
+    </div>
+    <div class="linha-prova">
+        <strong>EEAR 2024</strong>
+
+        <div class="acoes-prova">
+            <a href="PROVAS COM GABARITO/EEAR 2024 CFS 1.pdf" target="_blank">Ver CFS 1</a>
+            <a href="PROVAS COM GABARITO/EEAR 2024 CFS 2.pdf" target="_blank">Ver CFS 2</a>
+        </div>
+
+        <div class="acoes-prova">
+            <a href="PROVAS COM GABARITO/EEAR 2024 CFS 1.pdf" download>Baixar CFS 1</a>
+            <a href="PROVAS COM GABARITO/EEAR 2024 CFS 2.pdf" download>Baixar CFS 2</a>
+        </div>
+    </div>
+    <div class="linha-prova">
+        <strong>EEAR 2023</strong>
+
+        <div class="acoes-prova">
+            <a href="PROVAS COM GABARITO/EEAR CFS 1 2023.pdf" target="_blank">Ver CFS 1</a>
+            <a href="PROVAS COM GABARITO/EEAR CFS 2 2023.pdf" target="_blank">Ver CFS 2</a>
+        </div>
+
+        <div class="acoes-prova">
+            <a href="PROVAS COM GABARITO/EEAR CFS 1 2023.pdf" download>Baixar CFS 1</a>
+            <a href="PROVAS COM GABARITO/EEAR CFS 2 2023.pdf" download>Baixar CFS 2</a>
+        </div>
+    </div>
+    <div class="linha-prova">
+        <strong>EEAR 2022</strong>
+
+        <div class="acoes-prova">
+            <a href="PROVAS COM GABARITO/EEAR CFS 1 2022.pdf" target="_blank">Ver CFS 1</a>
+            <a href="PROVAS COM GABARITO/EEAR CFS 2 2022.pdf" target="_blank">Ver CFS 2</a>
+        </div>
+
+        <div class="acoes-prova">
+            <a href="PROVAS COM GABARITO/EEAR CFS 1 2022.pdf" download>Baixar CFS 1</a>
+            <a href="PROVAS COM GABARITO/EEAR CFS 2 2022.pdf" download>Baixar CFS 2</a>
+        </div>
+    </div>
+    <div class="linha-prova">
+        <strong>EEAR 2021</strong>
+
+        <div class="acoes-prova">
+            <a href="PROVAS COM GABARITO/CFS 1 2021 EEAR.pdf" target="_blank">Ver CFS 1</a>
+            <a href="PROVAS COM GABARITO/EEAR CFS 2 2021.pdf" target="_blank">Ver CFS 2</a>
+        </div>
+
+        <div class="acoes-prova">
+            <a href="PROVAS COM GABARITO/CFS 1 2021 EEAR.pdf" download>Baixar CFS 1</a>
+            <a href="PROVAS COM GABARITO/EEAR CFS 2 2021.pdf" download>Baixar CFS 2</a>
+        </div>
+    </div></div>
+  </main>
+
+  <div class="modal-simulado" id="modalSimulado">
+    <div class="modal-box">
+      <button onclick="fecharSimulado()" class="fechar">×</button>
+      <h2 id="tituloSimulado">Simulado EEAR</h2>
+      <p>Prova objetiva com 96 questões: 24 por disciplina.</p>
+
+      <div id="questaoBox" class="questao-box"></div>
+      <button onclick="corrigirSimulado()" class="btn primario full">Corrigir simulado</button>
+      <div id="resultado" class="resultado"></div>
+    </div>
+  </div>
+
+
+  <footer class="footer-eb">
+
+  <div class="footer-top">
+    <img
+      src="https://www.cursoqueiroz.com.br/wp-content/uploads/2023/02/Menu-Curso-para-Escola-de-Sargentos-Especialistas-da-Aeronautica.png"
+      alt="Logo da EEAR"
+      class="footer-eb-logo"
+    >
+  </div>
+
+  <div class="footer-links">
+
+    <div>
+      <h4>JUNTE-SE A NÓS</h4>
+      <a href="#">Militar de Carreira</a>
+      <a href="#">Colégio Militar</a>
+    </div>
+
+    <div>
+      <h4>RESERVA PRÓ-ATIVA</h4>
+      <a href="#">Cadastre-se</a>
+      <a href="#">Informativo</a>
+      <a href="#">Entre em Contato</a>
+    </div>
+
+  
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <div>
+      <h4>REDES SOCIAIS</h4>
+
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fas fa-link"></i></a>
+      </div>
+    </div>
+
+    <div class="acesso-info">
+      <div class="info-icon">i</div>
+
+      <div>
+        <strong>Acesso à </strong>
+        <span>Informação</span>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+  <script src="EEAR.js?v=96"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,344 @@
+/* =======================================
+   RESET
+======================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+    background:#17261d;
+    overflow:hidden;
+}
+
+/* =======================================
+   LAYOUT
+======================================= */
+
+.container{
+    display:flex;
+    width:100%;
+    height:100vh;
+}
+
+/* =======================================
+   SIDEBAR
+======================================= */
+
+.sidebar{
+
+    width:340px;
+
+    background:#203528;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:20px;
+
+    overflow-y:auto;
+
+    border-right:2px solid #2f4f3d;
+
+}
+
+.sidebar h2{
+
+    font-size:20px;
+
+    margin-bottom:20px;
+
+    font-weight:bold;
+
+}
+
+/* =======================================
+   PESQUISA
+======================================= */
+
+#pesquisa{
+
+    width:100%;
+
+    padding:14px 18px;
+
+    border:none;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:15px;
+
+    margin-bottom:20px;
+
+    background:white;
+
+}
+
+#pesquisa:focus{
+
+    box-shadow:0 0 12px rgba(85,170,85,.5);
+
+}
+
+/* =======================================
+   LISTA
+======================================= */
+
+#listaInstituicoes{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+/* =======================================
+   CARD
+======================================= */
+
+.card{
+
+    background:#314b38;
+
+    border-radius:14px;
+
+    padding:14px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    background:#3d5f46;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+}
+
+.card img{
+
+    width:100%;
+
+    height:160px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    margin-bottom:12px;
+
+}
+
+.card h3{
+
+    color:white;
+
+    font-size:22px;
+
+    margin-bottom:6px;
+
+}
+
+.card p{
+
+    color:#e4e4e4;
+
+    font-size:16px;
+
+}
+
+/* =======================================
+   MAPA
+======================================= */
+
+main{
+    flex:1;
+    position:relative;
+    overflow:hidden;
+}
+
+#map{
+    width:100%;
+    height:100%;
+}
+
+/* ==========================
+   BOTÃO LOCALIZAÇÃO
+========================== */
+
+#btnLocalizacao{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:20px;
+
+    background:#2f6f3e;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+#btnLocalizacao:hover{
+
+    background:#3f8a4f;
+
+}
+
+/* =======================================
+   POPUP LEAFLET
+======================================= */
+
+.leaflet-popup-content{
+
+    margin:10px;
+
+}
+
+.leaflet-popup-content img{
+
+    width:100%;
+
+    height:150px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    margin-bottom:10px;
+
+}
+
+.leaflet-popup-content h3{
+
+    margin-bottom:8px;
+
+}
+
+.leaflet-popup-content button{
+
+    width:100%;
+
+    margin-top:10px;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2f6f3e;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.leaflet-popup-content button:hover{
+
+    background:#3d8a4f;
+
+}
+
+/* =======================================
+   SCROLL
+======================================= */
+
+.sidebar::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:#4d7056;
+
+    border-radius:20px;
+
+}
+
+.sidebar::-webkit-scrollbar-track{
+
+    background:#203528;
+
+}
+
+/* =======================================
+   RESPONSIVO
+======================================= */
+
+@media(max-width:900px){
+
+    .container{
+
+        flex-direction:column;
+
+    }
+
+    .sidebar{
+
+        width:100%;
+
+        height:280px;
+
+    }
+
+    #map{
+
+        height:calc(100vh - 280px);
+
+    }
+
+    #btnLocalizacao{
+
+        bottom:15px;
+
+        right:15px;
+
+    }
+
+}

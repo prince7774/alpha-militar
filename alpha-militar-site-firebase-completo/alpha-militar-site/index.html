@@ -1,0 +1,694 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpha Militar | Plataforma Inteligente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+
+<div id="carros-cookie-widget">
+  <div class="carros-card">
+
+    <div class="carros-photo-col">
+      <img src="/alpha-militar-site-firebase-completo/imgs/Capturar.PNG" alt="Seguran&ccedil;a e privacidade">
+    </div>
+
+    <div class="carros-main-col">
+
+    <div class="carros-header">
+      <button class="carros-close-btn" onclick="document.getElementById('carros-cookie-widget').style.display='none'">&times;</button>
+      <div class="carros-badge-row">
+        <span class="carros-line"></span>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.86 5.37.78-3.88 3.78.92 5.35L12 14.77l-4.81 2.53.92-5.35L4.23 7.64l5.37-.78L12 2z"/></svg>
+        <span class="carros-line"></span>
+      </div>
+      <h1 class="carros-title">Prefer&ecirc;ncias de Cookies</h1>
+      <div class="carros-subtitle">Este site usa cookies para melhorar sua experi&ecirc;ncia</div>
+    </div>
+
+    <div id="carros-cc-root" class="carros-body">
+
+      <div class="carros-item">
+        <div class="carros-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+        </div>
+        <div class="carros-item-content">
+          <div class="carros-toggle-row">
+            <h3>Cookies necess&aacute;rios</h3>
+        <label class="carros-switch">
+              <input type="checkbox" checked disabled>
+              <span class="carros-slider"></span>
+            </label>
+          </div>
+          <p>Essenciais para o funcionamento do site. N&atilde;o podem ser desativados.</p>
+        </div>
+      </div>
+
+      <div class="carros-item">
+        <div class="carros-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12l18-8-8 18-2-8-8-2z"/></svg>
+        </div>
+        <div class="carros-item-content">
+          <div class="carros-toggle-row">
+            <h3>Cookies de desempenho</h3>
+            <label class="carros-switch">
+              <input type="checkbox" id="carros-perf-toggle" checked>
+              <span class="carros-slider"></span>
+            </label>
+          </div>
+          <p>Ajudam a entender como voc&ecirc; usa o site, para que possamos melhor&aacute;-lo.</p>
+        </div>
+      </div>
+
+      <div class="carros-item">
+        <div class="carros-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <div class="carros-item-content">
+          <div class="carros-toggle-row">
+            <h3>Cookies de marketing</h3>
+            <label class="carros-switch">
+              <input type="checkbox" id="carros-mkt-toggle">
+              <span class="carros-slider"></span>
+            </label>
+          </div>
+          <p>Usados para exibir an&uacute;ncios relevantes. <a href="arquivo.html">Consulte nossa pol&iacute;tica</a>.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="carros-insta-row">
+      <div class="carros-icon-wrap carros-insta-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+      </div>
+      <div class="carros-item-content">
+        <p><a href="https://instagram.com/alphamilitaroficial" target="_blank">@alphamilitarfocial</a> &mdash; siga e fique por dentro das novidades!</p>
+      </div>
+    </div>
+      <div class="carros-footer">
+      <button class="carros-btn carros-btn-reject" onclick="carrosCcChoice('reject')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        Recusar
+      </button>
+      <button class="carros-btn carros-btn-manage" onclick="alert('Prefer&ecirc;ncias salvas.')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.34 1.87l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.7 1.7 0 00-1.87-.34 1.7 1.7 0 00-1 1.55V21a2 2 0 11-4 0v-.09a1.7 1.7 0 00-1-1.55 1.7 1.7 0 00-1.87.34l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.7 1.7 0 00.34-1.87 1.7 1.7 0 00-1.55-1H3a2 2 0 110-4h.09a1.7 1.7 0 001.55-1 1.7 1.7 0 00-.34-1.87l-.06-.06a2 2 0 112.83-2.83l.06.06a1.7 1.7 0 001.87.34H9a1.7 1.7 0 001-1.55V3a2 2 0 114 0v.09a1.7 1.7 0 001 1.55 1.7 1.7 0 001.87-.34l.06-.06a2 2 0 112.83 2.83l-.06.06a1.7 1.7 0 00-.34 1.87V9a1.7 1.7 0 001.55 1H21a2 2 0 110 4h-.09a1.7 1.7 0 00-1.55 1z"/></svg>
+        Salvar
+      </button>
+      <button class="carros-btn carros-btn-accept" onclick="carrosCcChoice('accept')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+        Aceitar Tudo
+      </button>
+    </div>
+
+    </div><!-- /carros-main-col -->
+  </div><!-- /carros-card -->
+</div><!-- /carros-cookie-widget -->
+
+
+
+  
+  
+  <button class="side-toggle" onclick="abrirMenuLateral()" aria-label="Abrir menu lateral">☰</button>
+
+  <div id="sideOverlay" class="side-overlay" onclick="fecharMenuLateral()"></div>
+  
+  <aside id="menuLateral" class="pro-sidebar">
+    <div class="side-head">
+      <div class="side-logo"><img src="/alpha-militar-site-firebase-completo/imgs/ff1c9a683b5c9a18466453bb0a6669ad-removebg-preview.png" alt=""></div>
+      <div>
+        <strong>Alpha Militar</strong>
+        <span>Preparação & Liderança</span>
+      </div>
+      <button onclick="fecharMenuLateral()">×</button>
+    </div>
+  
+    <div class="side-status">
+      <span class="live-dot"></span>
+      Sistema online
+    </div>
+  
+    <nav class="side-links">
+      <a href="/alpha-militar-site-firebase-completo/alpha-militar-site/index.html"> <span>Início</span></a>
+      <a href="/PLANO DE ESTUDOS/estudos.html"> <span>Estudos</span></a>
+      <a href="/alpha-militar-site-firebase-completo/alpha-militar-site/simulados.html"><span>Simulados</span></a>
+      <a href="/alpha-militar-site-firebase-completo/alpha-militar-site/ESG.html"> <span>ESG</span></a>
+      <a href="/alpha-militar-site-firebase-completo/planos/planos.html"> <span>Planos</span></a>
+      <a href="/Rotina EB/Rotina.html">  <span>Rotina EB</span></a>
+      <a href="/Biblioteca militar/ebook.html">  <span>Biblioteca Militar</span></a>
+    </nav>
+  
+    <button class="side-cta" onclick="abrirAreaAluno()">Entrar na área do aluno</button>
+  </aside>
+  <div class="top-bar">
+    <span> Alpha Militar</span>
+    <span id="realtimeClock">Carregando...</span>
+    <span><i class="live-dot"></i><b id="onlineUsers">0</b> alunos online agora</span>
+  </div>
+
+  <header class="header" id="header">
+    <a href="#inicio" class="logo" aria-label="Alpha Militar">
+      <span class="logo-icon"><img src="/alpha-militar-site-firebase-completo/imgs/ff1c9a683b5c9a18466453bb0a6669ad-removebg-preview.png"></span>
+      <div class="logo-text"><strong>Alpha Militar</strong><small>Preparação & Liderança</small></div>
+    </a>
+
+    <label class="search-box" for="searchInput">
+      <span></span>
+      <input id="searchInput" type="search" placeholder="Para qual concurso você deseja estudar?" />
+      <div id="searchResults" class="search-results"></div>
+    </label>
+
+    <nav class="nav" id="nav" aria-label="Menu principal">
+      <div class="nav-item"><a href="/alpha-militar-site-firebase-completo/alpha-militar-site/index.html">Início</a>
+        <div class="mega-menu"><div class="mega-grid"><div><h3>Comece aqui</h3><a href="/alpha-militar-site-firebase-completo/alpha-militar-site/index.html">Visão geral</a><a href="/alpha-militar-site-firebase-completo/alpha-militar-site/ESG.html">Impacto ESG</a></div><div><h3>Destaques</h3><a href="#simulados">Simulado rápido</a><a href="#ia">Assistente IA</a><a href="#planos">Planos</a></div><div class="mega-card"><b>Próximo passo</b><p>Monte sua rotina de estudos em poucos minutos.</p><button onclick="location.href='ROTINA EB/rotina.html'">Começar agora</button></div></div></div>
+      </div>
+
+
+      <div class="nav-item"><a href="/PLANO DE ESTUDOS/estudos.html">Estudos</a>
+        <div class="mega-menu"><div class="mega-grid"><div><h3>Matérias</h3><a>Matemática</a><a>Português</a><a>Redação</a><a>História</a></div><div><h3>Ferramentas</h3><a>Revisões</a><a>Questões</a></div><div class="mega-card"><b>Rotina de hoje</b><p id="studyTip">Matemática + Português + 20 questões.</p><button onclick="location.href='#estudos'">Ver rotina</button></div></div></div>
+      </div>
+
+
+      <div class="nav-item"><a href="/alpha-militar-site-firebase-completo/alpha-militar-site/simulados.html">Simulados</a>
+        <div class="mega-menu"><div class="mega-grid"><div><h3>Simulados</h3><a>ESA 2026</a><a>EsPCEx 2026</a><a>Geral militar</a><a>Redação</a></div><div><h3>Relatórios</h3><a>Pontos fracos</a><a>Histórico</a><a>Nota de corte</a></div><div class="mega-card"><b>Ao vivo</b><p><span id="megaTests">42</span> simulados feitos hoje.</p><button onclick="iniciarSimulado()">Testar agora</button></div></div></div>
+      </div>
+
+      
+      <div class="nav-item"><a href="/alpha-militar-site-firebase-completo/alpha-militar-site/ESG.html">ESG</a>
+        <div class="mega-menu"><div class="mega-grid"><div><h3>Ambiental</h3><a>Material digital</a><a>Simulados online</a></div><div><h3>Social e Governança</h3><a>Inclusão</a><a>Acesso gratuito</a><a>Proteção de dados</a><a>IA ética</a></div></div></div>
+      </div>
+
+
+      <div class="nav-item"><a href="/Rotina EB/Rotina.html">Rotina</a>
+        <div class="mega-menu"><div class="mega-grid"><div><h3>Escolha seu plano</h3><a>Gratuito</a><a>Premium</a><a>Escolas públicas</a><a>Parcerias</a></div><div><h3>Benefícios</h3><a>Simulados completos</a><a>Relatórios</a><a>IA avançada</a><a>Dashboard</a></div><div class="mega-card"><b>Mais escolhido</b><p>Premium: IA + relatórios + simulados completos.</p><button onclick="location.href='#planos'">Assinar</button></div></div></div>
+      </div>
+
+
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn ghost" onclick="abrirLogin()">Login</button>
+      <button class="btn primary" onclick="abrirAreaAluno()">Área do aluno</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <div class="hero-text">
+          
+          <h1>Preparação militar inteligente.</h1>
+          <p>Uma plataforma moderna para jovens que desejam ingressar em carreiras militares, com organização, disciplina, acompanhamento de desempenho.</p>
+          <div class="hero-buttons"><a href="" class="btn primary big">Quero começar</a><a href="/alpha-militar-site-firebase-completo/alpha-militar-site/simulados.html" class="btn outline big">Ver simulados</a></div>
+          <div class="hero-stats"><div><strong id="liveStudyHours">18h</strong><span>estudo semanal</span></div><div><strong id="livePerformance">84%</strong><span>aproveitamento</span></div></div>
+        </div>
+    
+      </div>
+    </section>
+
+        
+
+
+
+
+
+
+
+
+
+    <section class="concursos-section" id="concursos">
+      <div class="concursos-title">
+        <h2>Prepare-se para os principais Concursos Militares do país.</h2>
+        <p>Conheça o material que vai colocar seu nome na lista dos classificados.</p>
+      </div>
+
+      <div class="concursos-wrap">
+        <button class="carousel-btn prev" type="button" aria-label="Voltar concursos" onclick="moverConcursos(-1)">‹</button>
+
+        <div class="concursos-carousel" id="concursosCarousel">
+          <article class="concurso-card">
+            <img src="https://static.wixstatic.com/media/98df57_526ffe4883684b9681e0c1b9443896ff~mv2.jpg/v1/fill/w_568,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/98df57_526ffe4883684b9681e0c1b9443896ff~mv2.jpg" alt="ESA - Área Geral e Aviação">
+            <div class="concurso-info">
+              <h3>ESA - Área Geral e Aviação</h3>
+              <p>Conheça o Pacote ESA.</p>
+            </div>
+          </article>
+
+          <article class="concurso-card">
+            <img src="https://www.eb.mil.br/documents/d/noticias/espcex-2-jpeg" alt="EsPCEx">
+            <div class="concurso-info">
+              <h3>EsPCEx</h3>
+              <p>Conheça o Pacote EsPCEx.</p>
+            </div>
+          </article>
+
+          <article class="concurso-card">
+            <img src="https://cursounipre.com.br/wp-content/uploads/2017/07/efomm.jpg" alt="EFOMM">
+            <div class="concurso-info">
+              <h3>EFOMM</h3>
+              <p>Conheça o Pacote EFOMM.</p>
+            </div>
+          </article>
+
+          <article class="concurso-card">
+            <img src="https://militares.estrategia.com/portal/wp-content/uploads/2024/03/DSC_0160.jpg.webp" alt="EPCAR">
+            <div class="concurso-info">
+              <h3>EPCAR</h3>
+              <p>Conheça o Pacote EPCAR.</p>
+            </div>
+          </article>
+
+          <article class="concurso-card">
+            <img src="https://institutomilitar.com.br/wp-content/uploads/2023/10/afa.jpg" alt="AFA">
+            <div class="concurso-info">
+              <h3>AFA</h3>
+              <p>Conheça o Pacote AFA.</p>
+            </div>
+          </article>
+
+          <article class="concurso-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR026-w96jtz0qMrbRoMklQawO-AjwkRBPJ6g&s" alt="EEAR">
+            <div class="concurso-info">
+              <h3>EEAR</h3>
+              <p>Conheça o Pacote EEAR.</p>
+            </div>
+          </article>
+              <article class="concurso-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEmhKVnc2OvW--Gdxz-5TW9RMUZTJ0gwVEiw&s" alt="EEAR">
+            <div class="concurso-info">
+              <h3>NPOR</h3>
+              <p>Conheça o Pacote NPOR.</p>
+            </div>
+          </article>
+              <article class="concurso-card">
+            <img src="https://www.praticarensino.com.br/wp-content/uploads/2024/10/Concurso_CBMERJ_Foto_CBMERJ-1024x622.webp" alt="EEAR">
+            <div class="concurso-info">
+              <h3>CBMERJ</h3>
+              <p>Conheça o Pacote CBMERJ.</p>
+            </div>
+          </article>
+              <article class="concurso-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnYcmGUABHgYMZJO74VCGcJPpZkh8MuYafjg&s" alt="EEAR">
+            <div class="concurso-info">
+              <h3>ITA</h3>
+              <p>Conheça o Pacote ITA.</p>
+            </div>
+          </article>
+          </article>
+              <article class="concurso-card">
+            <img src="https://www.gov.br/defesa/pt-br/centrais-de-conteudo/noticias/ministro-da-defesa-prestigia-cerimonia-de-entrega-de-espadins-na-escola-naval/whatsapp-image-2022-06-11-at-11-31-55.jpeg/@@images/20ee8441-0041-43bf-9675-7d50000f9993.jpeg" alt="EEAR">
+            <div class="concurso-info">
+              <h3>Escola Naval</h3>
+              <p>Conheça o Pacote Escola Naval.</p>
+            </div>
+          </article>
+          </article>
+              <article class="concurso-card">
+            <img src="https://s3.static.brasilescola.uol.com.br/vestibular/2021/08/ime.jpg" alt="EEAR">
+            <div class="concurso-info">
+              <h3>IME</h3>
+              <p>Conheça o Pacote IME.</p>
+            </div>
+          </article>
+        </div>
+
+        <button class="carousel-btn next" type="button" aria-label="Avançar concursos" onclick="moverConcursos(1)">›</button>
+      </div>
+
+      <div class="carousel-dots" id="concursosDots" aria-label="Paginação dos concursos"></div>
+    </section>
+
+          <section class="portal-transparencia">
+    
+    <div class="portal-header">
+        <h2 class="portal-titulo">Acesso à Informação</h2>
+        <div class="portal-linha"></div>
+    </div>
+
+    <div class="portal-links">
+
+        <a href="https://www.eb.mil.br/web/ouvidoria/institucional" class="portal-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/12058/12058809.png" alt="Institucional">
+    <span>Institucional</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/acoes-e-programas" class="portal-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/10532/10532141.png" alt="Ações e Programas">
+    <span>Ações e Programas</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/participacao-social" class="portal-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/1967/1967142.png" alt="Participação Social">
+    <span>Participação Social</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/auditorias" class="portal-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/5452/5452016.png" alt="Auditorias">
+    <span>Auditorias</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/convenios-transparencias" class="portal-box">
+    <img src="https://png.pngtree.com/png-clipart/20230504/original/pngtree-agreement-line-icon-png-image_9137847.png">
+    <span>Convênios e Transparências</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/receitas-despesas" class="portal-box">
+    <img src="https://dados.sc.gov.br/uploads/group/2019-10-14-181554.657698receita-despesa.png" alt="Receitas e Despesas">
+    <span>Receitas e Despesas</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/licitacoes-contratos" class="portal-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/2666/2666523.png" alt="Licitações e Contratos">
+    <span>Licitações e Contratos</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/servidores" class="portal-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/159/159297.png" alt="Servidores">
+    <span>Servidores</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/informacoes-classificadas" class="portal-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910760.png" alt="Informações Classificadas">
+    <span>Informações Classificadas</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/sic" class="portal-box">
+    <img src="https://icones.pro/wp-content/uploads/2022/02/icone-de-service-rouge.png" alt="Serviço de Informação ao Cidadão">
+    <span>Serviço de Informação ao Cidadão</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/perguntas-frequentes" class="portal-box">
+    <img src="https://images.vexels.com/media/users/3/131854/isolated/lists/d939c27b70134fa62d08031cca214c29-sinal-de-perguntas.png" alt="Perguntas Frequentes">
+    <span>Perguntas Frequentes</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/dados-abertos" class="portal-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/3511/3511155.png" alt="Dados Abertos">
+    <span>Dados Abertos</span>
+</a>
+
+<a href="https://www.calameo.com/exercito-brasileiro/read/001238206d096933134ad" class="portal-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/17420/17420128.png" alt="Carta de Serviços">
+    <span>Carta de Serviços ao Usuário</span>
+</a>
+
+<a href="https://www.sgex.eb.mil.br/sg8/" class="portal-box">
+    <img src="https://png.pngtree.com/png-vector/20230221/ourmid/pngtree-admin-work-line-icon-png-image_6607580.png" alt="Atos Administrativos">
+    <span>Atos Administrativos do Exército em Vigor</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/protecao-de-dados" class="portal-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/1355/1355153.png" alt="LGPD">
+    <span>Proteção de Dados - LGPD</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/metas-de-desempenho-institucional" class="portal-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/6500/6500035.png" alt="Metas">
+    <span>Metas de Desempenho Institucional</span>
+</a>
+
+<a href="https://www.eb.mil.br/web/ouvidoria/transformacao-digital" class="portal-box portal-destaque">
+    <img src="https://cdn-icons-png.flaticon.com/512/6528/6528214.png" alt="Transformação Digital">
+    <span>Transformação Digital</span>
+</a>
+
+    </div>
+
+</section>
+
+
+
+  </main>
+
+
+  <div class="login-overlay" id="loginModal" aria-hidden="true">
+    <div class="login-modal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <button class="login-close" onclick="fecharLogin()" aria-label="Fechar login">×</button>
+
+      <div class="login-brand">
+        <span class="login-brand-icon"><img src="/alpha-militar-site-firebase-completo/imgs/ff1c9a683b5c9a18466453bb0a6669ad-removebg-preview.png" alt="Logo do Exército Brasileiro"></span>
+      <div>
+          <strong>Alpha Militar</strong>
+          <small>Área segura do aluno</small>
+        </div>
+      </div>
+
+      <div class="login-progress">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <h2 id="loginTitle">Acesse sua conta</h2>
+      <p class="login-subtitle">Entre para acompanhar seus simulados, rotina inteligente e evolução em tempo real.</p>
+
+      <form class="login-form" onsubmit="entrarEmailSenha(event)">
+        <label>
+          <span>Email</span>
+          <div class="input-wrap">
+            <i></i>
+            <input id="emailLogin" type="email" placeholder="seuemail@exemplo.com" required>
+          </div>
+        </label>
+
+        <label>
+          <span>Senha</span>
+          <div class="input-wrap">
+            <i></i>
+            <input id="senhaLogin" type="password" placeholder="Digite sua senha" required>
+            <button type="button" class="show-pass" onclick="mostrarSenha()">👁</button>
+          </div>
+        </label>
+
+        <div class="login-options">
+          <label class="remember"><input type="checkbox"> Lembrar acesso</label>
+          <a href="#">Esqueci minha senha</a>
+        </div>
+
+        <button class="login-submit" type="submit">
+          Entrar na plataforma
+          <span>→</span>
+        </button>
+      </form>
+
+      <div class="login-divider"><span>ou continue com</span></div>
+
+      <button class="google-btn" type="button" onclick="entrarComGoogle()">
+        <span class="google-icon">G</span>
+        Google
+      </button>
+
+      <div class="secure-box">
+        <strong> Ambiente protegido</strong>
+        <p>Seus dados ficam seguros conforme boas práticas de governança digital.</p>
+      </div>
+
+      <p class="login-register">Ainda não é aluno? <a href="#planos" onclick="fecharLogin()">Conheça os planos</a></p>
+    </div>
+  </div>
+
+  <div class="profile-overlay" id="areaAlunoModal" aria-hidden="true">
+  <div class="profile-page">
+    <a href="/alpha-militar-site-firebase-completo/alpha-militar-site/index.html">
+      <button class="profile-close" onclick="fecharAreaAluno()">×</button>
+    </a>
+    
+
+    <div class="profile-cover"></div>
+
+    <div class="profile-header">
+      <div class="profile-avatar" id="perfilFotoBox">
+        <img id="perfilFoto" src="" alt="">
+        <span id="perfilLetra">A</span>
+      </div>
+
+      <div class="profile-title">
+        <h2 id="perfilNome">Aluno</h2>
+        <p id="perfilEmail">email</p>
+        <span class="profile-badge">Aluno ativo</span>
+      </div>
+    </div>
+
+    <div class="profile-stats">
+      
+      <div>
+        <span></span>
+        <strong id="perfilSimulados">0</strong>
+        <p>Simulados</p>
+      </div>
+    </div>
+
+    <div class="profile-content">
+      <section class="profile-card">
+        <h3> Evolução</h3>
+
+        <div class="progress-item">
+          <label>Aproveitamento <b id="perfilAproveitamento">84%</b></label>
+          <div class="progress-bar">
+            <span style="width:84%"></span>
+          </div>
+        </div>
+
+        <div class="progress-item">
+          <label>Meta semanal <b id="perfilMeta">22h / 30h</b></label>
+          <div class="progress-bar">
+            <span style="width:73%"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="profile-card">
+        <h3> Dados do aluno</h3>
+
+        <div class="profile-info">
+          
+          <p><b>Status:</b> <span class="online-text">Online</span></p>
+          <p><b>Curso:</b> <span id="perfilCurso">nenhum</span></p>
+          <p><b>Último acesso:</b> Agora</p>
+        </div>
+      </section>
+
+      <section class="profile-card wide">
+        <h3> Atividades recentes</h3>
+
+        <ul class="activity-list">
+          <li> Login realizado com sucesso</li>
+          <li>Rotina de estudos atualizada</li>
+          <li> Simulado rápido disponível</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="profile-actions">
+      <button onclick="fecharAreaAluno()">Voltar ao site</button>
+      <button class="danger" onclick="sairDaConta()">Sair da conta</button>
+    </div>
+  </div>
+</div>
+<footer class="footer-eb">
+
+  <div class="footer-top">
+    <img
+      src="/alpha-militar-site-firebase-completo/imgs/ff1c9a683b5c9a18466453bb0a6669ad-removebg-preview.png"
+      alt="Exército Brasileiro"
+      class="footer-eb-logo"
+    >
+  </div>
+
+  <div class="footer-links">
+
+    <div>
+     <a href="https://www.eb.mil.br/web/rp/junte-se-a-nos#militar-temporario"><h4>JUNTE-SE A NÓS</h4></a>
+      <a href="https://www.eb.mil.br/web/rp/militar-de-carreira">Militar de Carreira</a>
+      <a href="https://www.eb.mil.br/web/rp/colegio-militar">Colégio Militar</a>
+    </div>
+
+    <div>
+      <a href="https://www.eb.mil.br/web/rp/reserva-pro-ativa"><h4>RESERVA PRÓ-ATIVA</h4></a>
+      <a href="https://www.eb.mil.br/web/rp/reserva-pro-ativa/cadastre-se">Cadastre-se</a>
+      <a href="https://www.eb.mil.br/web/rp/informativo">Informativo</a>
+      <a href="https://www.eb.mil.br/web/rp/entre-em-contato">Entre em Contato</a>
+    </div>
+
+    <div>
+      <a href="https://www.eb.mil.br/web/rp/programa-conheca-o-seu-exercito"> <h4>PROGRAMA CONHEÇA O SEU EXÉRCITO</h4></a>
+      <a href="https://www.eb.mil.br/web/rp/programa-conheca-o-seu-exercito/atividades-de-2023">Atividades de 2023</a>
+      <a href="https://www.eb.mil.br/web/rp/programa-conheca-o-seu-exercito/atividades-de-2024">Atividades de 2024</a>
+      <a href="https://www.eb.mil.br/web/rp/programa-conheca-o-seu-exercito/atividades-de-2025">Atividades de 2025</a>
+    </div>
+
+    <div>
+      <a href="https://www.eb.mil.br/web/rp/junte-se-a-nos"><h4>RELAÇÕES PÚBLICAS</h4></a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <div>
+     
+
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fas fa-link"></i></a>
+      </div>
+    </div>
+
+    <div class="acesso-info">
+      <div class="info-icon">i</div>
+
+      <div>
+        <strong>Acesso à</strong>
+        <span>Informação</span>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <script>
+function carrosCcChoice(choice){
+  if(choice === 'accept'){
+    document.getElementById('carros-perf-toggle').checked = true;
+    document.getElementById('carros-mkt-toggle').checked = true;
+  } else if(choice === 'reject'){
+    document.getElementById('carros-perf-toggle').checked = false;
+    document.getElementById('carros-mkt-toggle').checked = false;
+  }
+  alert('Preferencia registrada: ' + (choice === 'accept' ? 'Aceitar Tudo' : 'Recusar'));
+  document.getElementById('carros-cookie-widget').style.display = 'none';
+}
+
+
+const cookieWidget = document.getElementById('carros-cookie-widget');
+
+function fecharCookies(escolha) {
+  localStorage.setItem('cookiesEscolha', escolha);
+  cookieWidget.style.display = 'none';
+}
+
+function carrosCcChoice(choice) {
+  const perf = document.getElementById('carros-perf-toggle');
+  const mkt = document.getElementById('carros-mkt-toggle');
+
+  if (choice === 'accept') {
+    perf.checked = true;
+    mkt.checked = true;
+  } else if (choice === 'reject') {
+    perf.checked = false;
+    mkt.checked = false;
+  }
+
+  fecharCookies(choice);
+}
+
+// Se a pessoa já escolheu antes, não mostra novamente
+if (localStorage.getItem('cookiesEscolha')) {
+  cookieWidget.style.display = 'none';
+}
+
+
+
+</script>
+  
+
+  
+  <script type="module" src="script.js">
+  </script>
+</body>
+</html>
+

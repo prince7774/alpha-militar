@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="ESG.css">
+
+<title>Alpha Militar | ESG e ODS</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#07100a;
+    color:#fff;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size:40px 40px;
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* NAVBAR */
+
+.topo{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100px;
+    padding:15px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    z-index:9999;
+    background:linear-gradient(rgba(0,0,0,.85), rgba(0,0,0,.15));
+}
+
+.logo-alpha img{
+    height:95px;
+    width:auto;
+    filter:drop-shadow(0 0 12px rgba(0,0,0,.7));
+}
+
+.navbar a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:28px;
+    font-size:.9rem;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#c79c34;
+}
+
+/* HERO */
+
+header{
+    min-height:100vh;
+    background:
+    radial-gradient(circle at center, rgba(199,156,52,.12), transparent 35%),
+    linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.86)),
+    url("https://www.eb.mil.br/documents/42953/1416462/capa.jpg/28de29ae-6ff2-5232-ab10-d6d2b5ce6127?t=1772480057269");
+
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:120px 20px 40px;
+}
+
+.hero{
+    max-width:850px;
+    text-align:center;
+    background:rgba(0,0,0,.58);
+    border:1px solid rgba(199,156,52,.9);
+    border-radius:24px;
+    padding:60px 50px;
+    box-shadow:0 0 50px rgba(0,0,0,.75);
+    backdrop-filter:blur(5px);
+}
+
+.tag{
+    color:#c79c34;
+    font-weight:900;
+    letter-spacing:5px;
+    font-size:.85rem;
+}
+
+.hero h1{
+    margin-top:20px;
+    font-size:clamp(3rem,7vw,5.4rem);
+    line-height:1.15;
+    font-weight:900;
+    text-transform:uppercase;
+}
+
+.hero p{
+    margin-top:25px;
+    font-size:1.15rem;
+    line-height:1.8;
+    color:#ddd;
+}
+
+.botoes{
+    margin-top:35px;
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 32px;
+    background:#c79c34;
+    color:#111;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:900;
+    transition:.3s;
+}
+
+.btn.secundario{
+    background:transparent;
+    color:#fff;
+    border:1px solid #c79c34;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+/* SEÇÕES */
+
+section{
+    padding:100px 8%;
+}
+
+.titulo{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.titulo span{
+    color:#c79c34;
+    font-weight:900;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.titulo h2{
+    margin-top:12px;
+    font-size:clamp(2rem,4vw,2.8rem);
+}
+
+.titulo p{
+    max-width:760px;
+    margin:18px auto 0;
+    color:#cfcfcf;
+    line-height:1.8;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.card{
+    position:relative;
+    background:linear-gradient(180deg,#111c15,#0b140e);
+    border:1px solid #263829;
+    border-radius:18px;
+    padding:32px;
+    transition:.3s;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:#c79c34;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#c79c34;
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+.card h3{
+    color:#c79c34;
+    margin-bottom:14px;
+    font-size:1.35rem;
+}
+
+.card p{
+    color:#ddd;
+    line-height:1.7;
+}
+
+/* ESTATÍSTICAS */
+
+.estatisticas{
+    background:#0b160e;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:25px;
+    text-align:center;
+    border-top:1px solid rgba(199,156,52,.5);
+    border-bottom:1px solid rgba(199,156,52,.5);
+}
+
+.numero{
+    padding:25px;
+}
+
+.numero h2{
+    color:#c79c34;
+    font-size:3rem;
+}
+
+.numero p{
+    color:#ddd;
+    text-transform:uppercase;
+    font-size:.9rem;
+    letter-spacing:1px;
+}
+
+/* FAIXA */
+
+.faixa{
+    background:
+    linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.78)),
+    linear-gradient(135deg,#111c15,#263829);
+    text-align:center;
+    border-top:1px solid #c79c34;
+    border-bottom:1px solid #c79c34;
+}
+
+.faixa p{
+    max-width:950px;
+    margin:auto;
+    font-size:1.15rem;
+    line-height:1.9;
+}
+
+.destaque{
+    color:#c79c34;
+    font-weight:900;
+}
+
+/* ETAPAS */
+
+.etapas{
+    max-width:1000px;
+    margin:auto;
+}
+
+.etapa{
+    margin-bottom:25px;
+    padding:28px;
+    border-left:5px solid #c79c34;
+    background:#111c15;
+    border-radius:0 14px 14px 0;
+}
+
+.etapa h3{
+    color:#c79c34;
+    margin-bottom:10px;
+}
+
+/* ODS */
+
+.ods-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+.ods{
+    padding:28px;
+    border-radius:18px;
+    background:#111c15;
+    border:1px solid #263829;
+}
+
+.ods strong{
+    display:inline-block;
+    background:#c79c34;
+    color:#111;
+    padding:8px 12px;
+    border-radius:6px;
+    margin-bottom:15px;
+}
+
+.ods h3{
+    color:#fff;
+    margin-bottom:10px;
+}
+
+.ods p{
+    color:#ddd;
+    line-height:1.7;
+}
+
+/* FAQ */
+
+.faq{
+    max-width:900px;
+    margin:auto;
+}
+
+.pergunta{
+    background:#111c15;
+    padding:22px;
+    margin-bottom:10px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:900;
+    border:1px solid #263829;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.pergunta::after{
+    content:"+";
+    color:#c79c34;
+    font-size:1.5rem;
+}
+
+.pergunta.ativo::after{
+    content:"-";
+}
+
+.resposta{
+    display:none;
+    padding:22px;
+    background:#0c140f;
+    margin-bottom:15px;
+    border-left:3px solid #c79c34;
+    color:#ddd;
+    line-height:1.7;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    background:
+    radial-gradient(circle at center, rgba(199,156,52,.18), transparent 40%),
+    #0b160e;
+}
+
+.cta h2{
+    font-size:clamp(2rem,5vw,3.5rem);
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#ddd;
+    margin-bottom:30px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#050805;
+    text-align:center;
+    padding:40px 20px;
+    color:#999;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:850px){
+    .topo{
+        height:auto;
+        padding:12px 5%;
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .logo-alpha img{
+        height:70px;
+    }
+
+    .navbar{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+    }
+
+    .navbar a{
+        margin-left:0;
+        font-size:.75rem;
+    }
+
+    header{
+        padding-top:150px;
+    }
+
+    .hero{
+        padding:38px 25px;
+    }
+
+
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="topo">
+    <div class="logo-alpha">
+        <img src="/alpha-militar-site-firebase-completo/imgs/ff1c9a683b5c9a18466453bb0a6669ad-removebg-preview.png" alt="Alpha Militar">
+    </div>
+
+    <nav class="navbar">
+        <a href="ESG.html">Início</a>
+        <a href="#conexao">Conexão</a>
+        <a href="#ods">ODS</a>
+        <a href="#faq">FAQ</a>
+        <a href="/alpha-militar-site-firebase-completo/alpha-militar-site/index.html">Começar</a>
+    </nav>
+</div>
+
+<header>
+    <div class="hero">
+        <div class="tag">FORMAÇÃO • ESTRATÉGIA • DISCIPLINA</div>
+
+        <h1>Alpha Militar e ESG</h1>
+
+        <p>
+            O Alpha Militar prepara alunos para concursos militares, desenvolvendo disciplina,
+            liderança, visão estratégica e compreensão sobre defesa nacional. Essa base dialoga
+            com os valores de formação, cidadania, segurança e pensamento estratégico ligados
+            ao universo da Escola Superior de Guerra.
+        </p>
+
+        <div class="botoes">
+            <a href="#conexao" class="btn">Entender a conexão</a>
+            <a href="#ods" class="btn secundario">Ver ODS</a>
+        </div>
+    </div>
+</header>
+
+<section id="conexao">
+    <div class="titulo">
+        <span>Onde o Alpha Militar entra</span>
+        <h2>A ponte entre preparação militar e estratégia nacional</h2>
+        <p>
+            O Alpha Militar atua na base: prepara o aluno para provas, cria disciplina
+            e apresenta conceitos que ajudam a compreender defesa, liderança e serviço ao país.
+        </p>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Preparação Militar</h3>
+            <p>Conteúdo voltado para ESA, EsPCEx, EEAR, Marinha e demais concursos militares.</p>
+        </div>
+
+        <div class="card">
+            <h3>Disciplina e Rotina</h3>
+            <p>Organização, foco, constância e mentalidade de superação aplicada aos estudos.</p>
+        </div>
+
+        <div class="card">
+            <h3>Liderança</h3>
+            <p>Desenvolvimento de postura, responsabilidade, tomada de decisão e compromisso.</p>
+        </div>
+
+        <div class="card">
+            <h3>Estratégia Nacional</h3>
+            <p>Introdução aos temas de defesa, soberania, cidadania e pensamento estratégico.</p>
+        </div>
+    </div>
+</section>
+
+<section class="estatisticas">
+    
+
+    <div class="numero">
+        <h2>24h</h2>
+        <p>Acesso aos estudos</p>
+    </div>
+
+    <div class="numero">
+        <h2>100%</h2>
+        <p>Foco militar</p>
+    </div>
+
+    <div class="numero">
+        <h2>ODS</h2>
+        <p>Educação e cidadania</p>
+    </div>
+</section>
+
+<section class="faixa">
+    <p>
+        O <span class="destaque">Alpha Militar</span> não substitui a ESG, mas funciona como uma
+        base educacional para estudantes que desejam ingressar no universo militar e compreender
+        temas ligados à estratégia, liderança, cidadania, defesa nacional e desenvolvimento do país.
+    </p>
+</section>
+
+<section>
+    <div class="titulo">
+        <span>Explicação</span>
+        <h2>Como essa ligação funciona?</h2>
+    </div>
+
+    <div class="etapas">
+        <div class="etapa">
+            <h3>1. Formação Inicial</h3>
+            <p>O aluno inicia a preparação para concursos militares, desenvolvendo base acadêmica e foco.</p>
+        </div>
+
+        <div class="etapa">
+            <h3>2. Mentalidade Militar</h3>
+            <p>Disciplina, responsabilidade, hierarquia, liderança e compromisso passam a fazer parte da rotina.</p>
+        </div>
+
+        <div class="etapa">
+            <h3>3. Consciência Estratégica</h3>
+            <p>O estudante começa a entender a importância da defesa nacional, da soberania e da cidadania.</p>
+        </div>
+
+        <div class="etapa">
+            <h3>4. Evolução Profissional</h3>
+            <p>A formação militar abre caminho para estudos mais avançados, funções de liderança e serviço ao país.</p>
+        </div>
+    </div>
+</section>
+
+<section id="ods">
+    <div class="titulo">
+        <span>ODS</span>
+        <h2>Quais ODS o Alpha Militar fortalece?</h2>
+        <p>
+            O projeto conversa principalmente com objetivos ligados à educação, igualdade de oportunidades,
+            cidadania, instituições fortes e desenvolvimento social.
+        </p>
+    </div>
+
+    <div class="ods-grid">
+        <div class="ods">
+            <strong>ODS 4</strong>
+            <h3>Educação de Qualidade</h3>
+            <p>Oferece preparação, conteúdo organizado e incentivo ao estudo contínuo para jovens que buscam carreira militar.</p>
+        </div>
+
+        <div class="ods">
+            <strong>ODS 5</strong>
+            <h3>Igualdade de Gênero</h3>
+            <p>Incentiva que homens e mulheres tenham acesso à preparação e oportunidade de crescimento na carreira militar.</p>
+        </div>
+
+        <div class="ods">
+            <strong>ODS 8</strong>
+            <h3>Trabalho Decente e Crescimento Econômico</h3>
+            <p>Ajuda estudantes a buscar estabilidade profissional, carreira pública e desenvolvimento pessoal.</p>
+        </div>
+
+        <div class="ods">
+            <strong>ODS 10</strong>
+            <h3>Redução das Desigualdades</h3>
+            <p>Amplia o acesso ao conhecimento para alunos que precisam de orientação estruturada e acessível.</p>
+        </div>
+
+        <div class="ods">
+            <strong>ODS 16</strong>
+            <h3>Paz, Justiça e Instituições Eficazes</h3>
+            <p>Valoriza cidadania, ética, disciplina, respeito às instituições e responsabilidade social.</p>
+        </div>
+
+        <div class="ods">
+            <strong>ODS 17</strong>
+            <h3>Parcerias e Meios de Implementação</h3>
+            <p>Permite conexão entre educação, sociedade, tecnologia, professores e projetos voltados à formação cidadã.</p>
+        </div>
+    </div>
+</section>
+
+<section id="faq">
+    <div class="titulo">
+        <span>Dúvidas frequentes</span>
+        <h2>Perguntas Frequentes</h2>
+    </div>
+
+    <div class="faq">
+        <div class="pergunta">O Alpha Militar faz parte da ESG?</div>
+        <div class="resposta">Não. O Alpha Militar é uma plataforma/projeto de preparação e estudos militares. A ESG é uma instituição de altos estudos estratégicos.</div>
+
+        <div class="pergunta">Qual a relação entre Alpha Militar, ESG e ODS?</div>
+        <div class="resposta">A relação está na educação, disciplina, liderança, cidadania, defesa nacional e formação de pessoas preparadas para servir à sociedade.</div>
+
+        <div class="pergunta">Quais ODS aparecem no projeto?</div>
+        <div class="resposta">Os principais são ODS 4, ODS 5, ODS 8, ODS 10, ODS 16 e ODS 17.</div>
+
+        <div class="pergunta">Quem pode estudar no Alpha Militar?</div>
+        <div class="resposta">Qualquer pessoa interessada em concursos militares, carreira pública, disciplina nos estudos e formação cidadã.</div>
+    </div>
+</section>
+
+<section class="cta" id="comecar">
+    <h2>Pronto para evoluir?</h2>
+    <p>Prepare-se com disciplina, estratégia e foco militar.</p>
+    <a href="/alpha-militar-site-firebase-completo/alpha-militar-site/index.html" class="btn">Começar agora</a>
+</section>
+
+<footer class="footer-eb">
+
+  <div class="footer-top">
+    <img
+      src="/alpha-militar-site-firebase-completo/imgs/ff1c9a683b5c9a18466453bb0a6669ad-removebg-preview.png"
+      alt="Exército Brasileiro"
+      class="footer-eb-logo"
+    >
+  </div>
+
+  <div class="footer-links">
+
+    <div>
+     <a href="https://www.eb.mil.br/web/rp/junte-se-a-nos#militar-temporario"><h4>JUNTE-SE A NÓS</h4></a>
+      <a href="https://www.eb.mil.br/web/rp/militar-de-carreira">Militar de Carreira</a>
+      <a href="https://www.eb.mil.br/web/rp/colegio-militar">Colégio Militar</a>
+    </div>
+
+    <div>
+      <a href="https://www.eb.mil.br/web/rp/reserva-pro-ativa"><h4>RESERVA PRÓ-ATIVA</h4></a>
+      <a href="https://www.eb.mil.br/web/rp/reserva-pro-ativa/cadastre-se">Cadastre-se</a>
+      <a href="https://www.eb.mil.br/web/rp/informativo">Informativo</a>
+      <a href="https://www.eb.mil.br/web/rp/entre-em-contato">Entre em Contato</a>
+    </div>
+
+    <div>
+      <a href="https://www.eb.mil.br/web/rp/programa-conheca-o-seu-exercito"> <h4>PROGRAMA CONHEÇA O SEU EXÉRCITO</h4></a>
+      <a href="https://www.eb.mil.br/web/rp/programa-conheca-o-seu-exercito/atividades-de-2023">Atividades de 2023</a>
+      <a href="https://www.eb.mil.br/web/rp/programa-conheca-o-seu-exercito/atividades-de-2024">Atividades de 2024</a>
+      <a href="https://www.eb.mil.br/web/rp/programa-conheca-o-seu-exercito/atividades-de-2025">Atividades de 2025</a>
+    </div>
+
+    <div>
+      <a href="https://www.eb.mil.br/web/rp/junte-se-a-nos"><h4>RELAÇÕES PÚBLICAS</h4></a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <div>
+     
+
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fas fa-link"></i></a>
+      </div>
+    </div>
+
+    <div class="acesso-info">
+      <div class="info-icon">i</div>
+
+      <div>
+        <strong>Acesso à</strong>
+        <span>Informação</span>
+      </div>
+    </div>
+
+  </div>
+
+
+</footer>
+
+
+<script>
+const perguntas = document.querySelectorAll(".pergunta");
+
+perguntas.forEach(item => {
+    item.addEventListener("click", () => {
+        item.classList.toggle("ativo");
+
+        const resposta = item.nextElementSibling;
+
+        if(resposta.style.display === "block"){
+            resposta.style.display = "none";
+        }else{
+            resposta.style.display = "block";
+        }
+    });
+});
+</script>
+
+</body>
+</html>

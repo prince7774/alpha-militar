@@ -1,0 +1,500 @@
+:root{--bg:#10141f;--bg2:#070b12;--card:#182235;--card2:#1f2b40;--green:#4b947e;--green2:#63b89c;--gold:#d8c15d;--text:#f8fafc;--muted:#aeb9c8;--line:rgba(255,255,255,.10);--ok:#22c55e}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:Inter,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at top right,rgba(75,148,126,.24),transparent 34%),linear-gradient(180deg,var(--bg),var(--bg2))}a{text-decoration:none;color:inherit}button,input{font-family:inherit}.top-bar{min-height:36px;background:#070b11;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;color:#d7dee9;font-size:13px;padding:7px 12px}.live-dot{width:8px;height:8px;border-radius:50%;background:var(--ok);display:inline-block;margin-right:7px;box-shadow:0 0 0 6px rgba(34,197,94,.13)}.header{position:sticky;top:0;z-index:99;background:rgba(15,22,34,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:14px 6%;display:flex;align-items:center;justify-content:space-between;gap:18px}.logo{display:flex;align-items:center;gap:12px}.logo-icon{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--green2),var(--gold));display:grid;place-items:center;font-weight:900;font-size:22px}.logo strong{display:block}.logo small{display:block;color:var(--muted);font-size:11px;font-weight:700}.nav{display:flex;gap:5px;font-weight:800;font-size:14px}.nav a{padding:11px 12px;border-radius:12px;color:#dbe5ee}.nav a:hover{background:rgba(255,255,255,.08);color:var(--gold)}.btn{border:0;border-radius:14px;padding:12px 18px;font-weight:900;cursor:pointer;transition:.2s;display:inline-flex;justify-content:center;align-items:center;gap:8px}.btn:hover{transform:translateY(-1px)}.primary{background:linear-gradient(135deg,var(--green),#327764);color:white;box-shadow:0 14px 28px rgba(75,148,126,.22)}.outline{background:transparent;color:white;border:1px solid rgba(255,255,255,.20)}.hero{position:relative;padding:82px 6%;display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:center;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,20,.94),rgba(8,12,20,.58)),url("https://www.gob.org.br/wp-content/uploads/93822585_2917138191655684_4235012322801745920_n.jpg");background-size:cover;background-position:center;opacity:.42;z-index:-1}.tag{display:inline-flex;align-items:center;gap:8px;color:#ffe992;background:rgba(216,193,93,.13);border:1px solid rgba(216,193,93,.34);padding:9px 14px;border-radius:999px;font-weight:900;font-size:13px;margin-bottom:18px}h1{font-size:clamp(38px,6vw,72px);line-height:.98;letter-spacing:-3px;margin-bottom:20px;max-width:850px}.hero p,.section-title p,.panel p{color:#dbe5ee;font-size:18px;line-height:1.65;max-width:760px}.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}.hero-panel,.panel{background:rgba(24,34,53,.88);border:1px solid rgba(216,193,93,.25);border-radius:28px;padding:26px;box-shadow:0 30px 70px rgba(0,0,0,.35)}.hero-panel h2{font-size:30px;margin-bottom:18px}.today-list{display:grid;gap:12px}.today-list div{display:flex;justify-content:space-between;gap:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);padding:14px;border-radius:16px}.today-list span{color:var(--gold);font-weight:900}.section{padding:64px 6%}.section.dark{background:rgba(0,0,0,.18)}.section-title{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}.section-title span{color:var(--gold);text-transform:uppercase;letter-spacing:2px;font-weight:900;font-size:12px}.section-title h2{font-size:clamp(28px,4vw,46px);letter-spacing:-1px;margin-top:6px}.stats-grid,.cards-grid,.song-grid,.check-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.stats-grid article,.card,.song,.check-grid label{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.18)}.stats-grid span{font-size:28px}.stats-grid h3{font-size:34px;margin:12px 0 4px}.stats-grid p{color:var(--muted);font-weight:700}.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}.filter{background:#0d1420;color:white;border:1px solid rgba(255,255,255,.12);padding:12px 15px;border-radius:999px;font-weight:900;cursor:pointer}.filter.active{background:linear-gradient(135deg,var(--green),#327764);border-color:transparent}.card,.song{transition:.2s}.card:hover,.song:hover{transform:translateY(-4px);border-color:rgba(216,193,93,.45)}.card-top{display:flex;justify-content:space-between;gap:12px;margin-bottom:12px}.card h3,.song h3{font-size:22px;margin-bottom:10px}.badge{height:max-content;padding:6px 10px;border-radius:999px;background:rgba(75,148,126,.16);color:#9af4ce;font-size:12px;font-weight:900;white-space:nowrap}.card p,.song p{color:#cbd5e1;line-height:1.55;margin-bottom:14px}.list{display:grid;gap:8px;margin:14px 0}.list li{list-style:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:10px;border-radius:12px;color:#dbe5ee;font-weight:700}.bar{height:12px;border-radius:999px;background:#0c1320;overflow:hidden;border:1px solid rgba(255,255,255,.08);margin-top:14px}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:999px}.song button{width:100%;margin-top:8px}.timeline{display:grid;gap:14px}.timeline div{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;background:rgba(24,34,53,.88);border:1px solid var(--line);border-radius:20px;padding:18px}.timeline strong{color:var(--gold);font-size:22px}.timeline span{color:#e5edf6;font-weight:700}.split{display:grid;grid-template-columns:1fr 1fr;gap:24px}.value-list{display:grid;gap:12px;margin-top:16px}.value-list li{list-style:none;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:13px;font-weight:800}.check-grid{grid-template-columns:repeat(2,1fr)}.check-grid label{cursor:pointer;font-weight:800;color:#e5edf6}.check-grid input{margin-right:10px;accent-color:var(--green)}.footer{background:#070b11;border-top:1px solid var(--line);padding:34px 6%;color:#cbd5e1}@media(max-width:1100px){.hero,.split{grid-template-columns:1fr}.stats-grid,.cards-grid,.song-grid{grid-template-columns:repeat(2,1fr)}.nav{display:none}}@media(max-width:700px){.header{padding:14px 18px}.logo small,.header .outline{display:none}.hero,.section{padding-left:20px;padding-right:20px}h1{letter-spacing:-2px}.hero-actions{flex-direction:column}.hero-actions .btn{width:100%}.stats-grid,.cards-grid,.song-grid,.check-grid{grid-template-columns:1fr}.section-title{align-items:flex-start;flex-direction:column}.timeline div{grid-template-columns:1fr}}
+
+/* === RESPONSIVIDADE GLOBAL ALPHA MILITAR === */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  min-width: 0;
+}
+
+img,
+video,
+iframe,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+button,
+.btn,
+.btn-topo,
+.btn-voltar,
+.req-btn,
+.filtroBtn,
+.abrirMaterialBtn,
+.deathNoteBtn,
+.tab,
+.filter {
+  white-space: normal;
+}
+
+.card,
+.bleachCard,
+.package-card,
+.metric,
+.study-card,
+.chat-card,
+.plan,
+.panel,
+.stat-card,
+.discipline-card,
+.sim-card,
+.trail-card,
+.requisito-card,
+.concurso-card,
+.video-card,
+.card-material,
+.dia-card,
+.card-tarefa,
+.timer-card,
+.profile-card {
+  min-width: 0;
+}
+
+.tabela-provas,
+.table-wrap,
+.panel,
+.modal-box,
+.profile-page {
+  max-width: 100%;
+}
+
+@media (max-width: 1180px) {
+  .topo-curso,
+  .rotina-header {
+    height: auto !important;
+    min-height: 70px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .top-nav,
+  .rotina-nav {
+    order: 3;
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scrollbar-width: thin;
+  }
+
+  .top-nav a,
+  .rotina-nav a {
+    flex: 0 0 auto;
+  }
+
+  .hero,
+  .hero-content,
+  .hero-grid,
+  .hero-rotina,
+  .hero-curso,
+  .main-grid,
+  .split,
+  .grid-duplo,
+  .history-grid,
+  .profile-content,
+  .timer-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .stats-grid,
+  .dashboard-grid,
+  .cards-3,
+  .cards-grid,
+  .song-grid,
+  .sim-grid,
+  .trail-grid,
+  .achievements,
+  .profile-stats,
+  .requisitos-grid,
+  .video-grid,
+  .plano-grid,
+  .disciplinas-grid,
+  .portal-links,
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .semana-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .package-row,
+  .concursos-carousel {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: 15px;
+  }
+
+  .top-bar {
+    padding: 8px 14px !important;
+    gap: 6px 14px !important;
+    text-align: center;
+  }
+
+  .header,
+  .topo-curso,
+  .rotina-header {
+    padding: 12px 16px !important;
+    min-height: 64px !important;
+  }
+
+  .logo,
+  .brand {
+    min-width: 0 !important;
+    max-width: 100%;
+  }
+
+  .logo strong,
+  .brand strong {
+    white-space: normal !important;
+    line-height: 1.12;
+  }
+
+  .logo small,
+  .brand span {
+    display: none !important;
+  }
+
+  .logo-icon,
+  .brand img,
+  .footer-eb-logo {
+    width: 42px !important;
+    height: 42px !important;
+    flex: 0 0 42px !important;
+  }
+
+  h1,
+  .hero-curso h1,
+  .hero-texto h1 {
+    font-size: clamp(32px, 11vw, 46px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -1.2px !important;
+  }
+
+  h2,
+  .section h2,
+  .section-title h2,
+  .titulo-secao h2,
+  .onePieceTitulo,
+  .portal-titulo,
+  .requisitos-section h2 {
+    font-size: clamp(24px, 8vw, 34px) !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.4px !important;
+  }
+
+  .hero,
+  .hero-content,
+  .hero-grid,
+  .hero-rotina,
+  .hero-curso,
+  .section,
+  .secao,
+  #attackTitan,
+  .portal-transparencia,
+  .concursos-section,
+  .requisitos-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .hero,
+  .hero-content,
+  .hero-grid,
+  .hero-rotina,
+  .hero-curso {
+    min-height: auto !important;
+    padding-top: 56px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .hero p,
+  .hero-texto p,
+  .hunterTexto,
+  .section-title p,
+  .titulo-secao p,
+  .panel p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .hero-buttons,
+  .hero-actions,
+  .hero-acoes,
+  .profile-actions,
+  .timer-controles,
+  .footer-bottom,
+  .titulo-secao.linha,
+  .section-title,
+  .linha,
+  .mission-head,
+  .card-top,
+  .goal-head,
+  .timer-card,
+  .chat-input {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .hero-buttons .btn,
+  .hero-actions .btn,
+  .hero-acoes .btn,
+  .profile-actions button,
+  .timer-controles button,
+  .btn,
+  .btn-topo,
+  .btn-voltar,
+  .req-btn {
+    width: 100%;
+  }
+
+  .stats-grid,
+  .dashboard-grid,
+  .cards-3,
+  .cards-grid,
+  .song-grid,
+  .sim-grid,
+  .trail-grid,
+  .achievements,
+  .profile-stats,
+  .requisitos-grid,
+  .video-grid,
+  .plano-grid,
+  .disciplinas-grid,
+  .portal-links,
+  .footer-links,
+  .subjects,
+  .discipline-grid,
+  .check-grid,
+  .semana-grid,
+  .form-grid,
+  .plans,
+  .main-grid,
+  .history-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dragonBallGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .bleachCard img {
+    height: 230px !important;
+    object-fit: contain !important;
+  }
+
+  .filtroMilitar,
+  .tabs,
+  .filters {
+    justify-content: stretch !important;
+  }
+
+  .filtroBtn,
+  .tab,
+  .filter,
+  .filters input,
+  .filters select,
+  .form-grid input,
+  .form-grid select {
+    width: 100% !important;
+  }
+
+  .panel,
+  .hero-panel,
+  .mission-card,
+  .profile-card,
+  .modal-box,
+  .login-modal,
+  .card,
+  .bleachCard,
+  .stat-card,
+  .discipline-card,
+  .sim-card,
+  .trail-card,
+  .requisito-card,
+  .card-material,
+  .video-card,
+  .dia-card,
+  .timer-card,
+  .card-tarefa {
+    border-radius: 16px !important;
+    padding: 18px !important;
+  }
+
+  .bleachCard {
+    padding: 0 !important;
+  }
+
+  .bleachCard .card-body {
+    padding: 14px !important;
+  }
+
+  .footer,
+  .footer-curso,
+  .footer-eb,
+  .rotina-footer {
+    padding: 28px 16px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 22px !important;
+  }
+
+  .footer-social {
+    flex-wrap: wrap;
+    gap: 14px !important;
+  }
+
+  .portal-destaque {
+    grid-column: auto !important;
+    width: auto !important;
+  }
+
+  .timeline div,
+  .linha-prova {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tabela-provas,
+  .history-grid,
+  .panel {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 560px;
+  }
+
+  .modal,
+  .login-overlay,
+  .profile-overlay {
+    padding: 12px !important;
+  }
+
+  .profile-header {
+    padding: 0 18px 22px !important;
+    margin-top: -42px !important;
+  }
+
+  .profile-avatar {
+    width: 92px !important;
+    height: 92px !important;
+    border-radius: 20px !important;
+  }
+
+  .profile-stats,
+  .profile-content,
+  .profile-actions {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .side-toggle {
+    width: 42px !important;
+    height: 42px !important;
+    top: 12px !important;
+    left: 12px !important;
+  }
+
+  .pro-sidebar {
+    width: calc(100vw - 24px) !important;
+    left: calc(-100vw - 24px) !important;
+    top: 12px !important;
+    height: calc(100vh - 24px) !important;
+    border-radius: 18px !important;
+  }
+
+  .pro-sidebar.ativo {
+    left: 12px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .dragonBallGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .bleachCard img {
+    height: 300px !important;
+  }
+
+  .top-bar {
+    font-size: 12px !important;
+  }
+
+  .logo strong,
+  .brand strong {
+    font-size: 15px !important;
+  }
+
+  .hero-stats div,
+  .indicadores div {
+    width: 100%;
+  }
+}
+/* === FIM RESPONSIVIDADE GLOBAL ALPHA MILITAR === */
+
+/* Ajustes finais de responsividade */
+@media (max-width: 760px) {
+  .pro-sidebar:not(.ativo) {
+    transform: translateX(calc(-100% - 32px)) !important;
+    left: 12px !important;
+  }
+}
+
+@media (min-width: 1181px) {
+  .semana-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  .semana-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .semana-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Corre??o do menu mobile da home: fechado sem criar scroll horizontal */
+@media (max-width: 1180px) {
+  .header .nav {
+    right: 0 !important;
+    transform: translateX(110%) !important;
+    will-change: transform;
+  }
+
+  .header .nav.active {
+    right: 0 !important;
+    transform: translateX(0) !important;
+  }
+}
+

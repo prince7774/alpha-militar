@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpha Militar | Sistema Completo de Estudos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Biblioteca militar/ebook.css" />
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">
+        <img src="/alpha-militar-site-firebase-completo/imgs/ff1c9a683b5c9a18466453bb0a6669ad-removebg-preview.png"
+         alt="">
+        </span>
+      <div><strong>Alpha Militar</strong><small>Preparação & Liderança</small></div>
+    </a>
+    <nav class="nav">
+      <a href="#disciplinas" class="active">Disciplinas</a>
+      <a href="#trilhas">Trilhas</a>
+      <a href="#simulados">Simulados</a>
+      <a href="#desempenho">Desempenho</a>
+  </nav>
+    <div>
+      <a class="btn outline" href="/alpha-militar-site-firebase-completo/alpha-militar-site/index.html">Voltar</a>
+      <a class="btn primary" href="#disciplinas">Estudar agora</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid">
+        <div>  
+          <h1>Biblioteca Virtual para concursos militares e ampliar seu conhecimento</h1>
+          <p>Plataforma de Preparação Militar - Centro de Estudos Militar</p>
+          <div class="hero-buttons">
+            <a href="#disciplinas" class="btn primary">Conheça a Biblioteca Virtual</a>
+            <a href="#simulados" class="btn outline">Ver materiais</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <section id="attackTitan">
+  <div class="narutoContainer">
+
+    <h2 class="onePieceTitulo">Biblioteca Militar</h2>
+
+    <p class="hunterTexto">
+      Explore nossa coleção de <strong>E-books</strong>,
+      <strong>Livros</strong> e <strong>Planos de Estudo para Concursos Militares</strong>.
+      Conteúdo selecionado para aprimorar seus conhecimentos, fortalecer sua preparação
+      e auxiliar na conquista dos seus objetivos.
+    </p>
+
+    <div class="filtroMilitar">
+      <button class="filtroBtn active" data-filtro="todos">Todos</button>
+      <button class="filtroBtn" data-filtro="ebook">E-books</button>
+      <button class="filtroBtn" data-filtro="livro">Livros</button>
+      <button class="filtroBtn" data-filtro="plano">Planos</button>
+    </div>
+
+    <div class="dragonBallGrid" id="grid"></div>
+
+    <div class="tokyoGhoulPaginacao" id="paginacao"></div>
+
+  </div>
+</section>
+
+
+
+  <script>
+const livros = [
+    /* ── LIVROS (16) ── */
+    { titulo: "A Arte da Guerra",              autor: "Sun Tzu",                  cat: "livro", img: "/Biblioteca militar/imgs/livros/01-a-arte-da-guerra.png" },
+    { titulo: "Da Guerra",                     autor: "Carl von Clausewitz",       cat: "livro", img: "/Biblioteca militar/imgs/livros/02-da-guerra.png" },
+    { titulo: "Sobre a Guerra",                autor: "Clausewitz",                cat: "livro", img: "/Biblioteca militar/imgs/livros/03-sobre-a-guerra.png" },
+    { titulo: "O Príncipe",                    autor: "Nicolau Maquiavel",         cat: "livro", img: "/Biblioteca militar/imgs/livros/04-o-pr-ncipe.png" },
+    { titulo: "Livro dos Cinco Anéis",         autor: "Miyamoto Musashi",          cat: "livro", img: "/Biblioteca militar/imgs/livros/05-livro-dos-cinco-an-is.png" },
+    { titulo: "História Militar Brasileira",   autor: "Gen. Moreira",              cat: "livro", img: "/Biblioteca militar/imgs/livros/06-hist-ria-militar-brasileira.png" },
+    { titulo: "As 48 Leis do Poder",           autor: "Robert Greene",             cat: "livro", img: "/Biblioteca militar/imgs/livros/07-as-48-leis-do-poder.png" },
+    { titulo: "A Arte do Engano",              autor: "Kevin Mitnick",             cat: "livro", img: "/Biblioteca militar/imgs/livros/08-a-arte-do-engano.png" },
+    { titulo: "O General",                     autor: "C.S. Forester",             cat: "livro", img: "/Biblioteca militar/imgs/livros/09-o-general.png" },
+    { titulo: "Guerrilha",                     autor: "Che Guevara",               cat: "livro", img: "/Biblioteca militar/imgs/livros/10-guerrilha.png" },
+    { titulo: "Patton: A Guerra",              autor: "Martin Blumenson",          cat: "livro", img: "/Biblioteca militar/imgs/livros/11-patton-a-guerra.png" },
+    { titulo: "O Livro Vermelho",              autor: "Mao Tsé-Tung",              cat: "livro", img: "/Biblioteca militar/imgs/livros/12-o-livro-vermelho.png" },
+    { titulo: "Liderança em Combate",          autor: "Jocko Willink",             cat: "livro", img: "/Biblioteca militar/imgs/livros/13-lideran-a-em-combate.png" },
+    { titulo: "A Segunda Guerra Mundial",      autor: "Winston Churchill",         cat: "livro", img: "/Biblioteca militar/imgs/livros/14-a-segunda-guerra-mundial.png" },
+    { titulo: "Estratégia",                    autor: "B.H. Liddell Hart",         cat: "livro", img: "/Biblioteca militar/imgs/livros/15-estrat-gia.png" },
+    { titulo: "O Lado Difícil das Situações Difíceis", autor: "Ben Horowitz",    cat: "livro", img: "/Biblioteca militar/imgs/livros/16-o-lado-dif-cil-das-situa-es-dif-ceis.png" },
+
+    /* ── E-BOOKS (16) ── */
+    { titulo: "Estratégia Militar Moderna",    autor: "Alpha Militar EFG",         cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/ESTRATEGIA MODERNA.png" },
+    { titulo: "Manual de Liderança Militar",   autor: "Alpha Militar EFG",         cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/download.png" },
+    { titulo: "Táticas de Combate Urbano",     autor: "Alpha Militar EFG",         cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/oii.png" },
+    { titulo: "Inteligência Militar",          autor: "Alpha Militar EFG",            cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/inteligencia.png" },
+    { titulo: "Logística Operacional",         autor: "Alpha Militar EFG",          cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/logistica_operacional-removebg-preview.png" },
+    { titulo: "Direito Internacional Militar", autor: "Alpha Militar EFG",           cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/INTELIGENCIA (2).png" },
+    { titulo: "Primeiros Socorros em Campo",   autor: "Alpha Militar EFG",          cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/socorros.png" },
+    { titulo: "Comunicações Táticas",          autor: "Alpha Militar EFG",    cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/tatico.png" },
+    { titulo: "Armamento e Balística",         autor: "Alpha Militar EFG",             cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/arma.png" },
+    { titulo: "Ordem Unida e Regulamentos",    autor: "Alpha Militar EFG",                     cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/ordem.png" },
+    { titulo: "Psicologia Militar",            autor: "Alpha Militar EFG",         cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/mente.png" },
+    { titulo: "Topografia e Navegação",        autor: "Alpha Militar EFG",           cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/tipo.png" },
+    { titulo: "Defesa Química e Biológica",    autor: "Alpha Militar EFG", cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/bio.png" },
+    { titulo: "Operações de Paz",              autor: "Alpha Militar EFG",        cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/paz.png" },
+    { titulo: "Ética e Deontologia Militar",   autor: "Alpha Militar EFG",              cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/etica.png" },
+    { titulo: "Segurança Cibernética Militar", autor: "Alpha Militar EFG",                      cat: "ebook", img: "/Biblioteca militar/imgs/ebooks/ult.png" },
+
+    /* ── PLANOS (16) ── */
+
+{ titulo: "Plano 01 – Liderança Militar", autor: "Equipe Militar do Alpha Militar EFG", cat: "plano", img: "/Biblioteca militar/imgs/planos/plano-01.png" },
+{ titulo: "Plano 02 – Planejamento Tático", autor: "Equipe Militar do Alpha Militar EFG", cat: "plano", img: "/Biblioteca militar/imgs/planos/plano-02.png" },
+{ titulo: "Plano 03 – Disciplina e Rotina", autor: "Equipe Militar do Alpha Militar EFG", cat: "plano", img: "/Biblioteca militar/imgs/planos/plano-03.png" },
+{ titulo: "Plano 04 – Treinamento Físico", autor: "Equipe Militar do Alpha Militar EFG", cat: "plano", img: "/Biblioteca militar/imgs/planos/plano-04.png" },
+{ titulo: "Plano 05 – Fortalecimento Mental", autor: "Equipe Militar do Alpha Militar EFG", cat: "plano", img: "/Biblioteca militar/imgs/planos/plano-05.png" },
+{ titulo: "Plano 06 – Segurança e Inteligência", autor: "Equipe Militar do Alpha Militar EFG", cat: "plano", img: "/Biblioteca militar/imgs/planos/plano-06.png" },
+{ titulo: "Plano 07 – Atendimento Tático", autor: "Equipe Militar do Alpha Militar EFG", cat: "plano", img: "/Biblioteca militar/imgs/planos/plano-07.png" },
+{ titulo: "Plano 08 – Reconhecimento e Observação", autor: "Equipe Militar do Alpha Militar EFG", cat: "plano", img: "/Biblioteca militar/imgs/planos/plano-08.png" },
+{ titulo: "Plano 09 – Comunicação Militar", autor: "Equipe Militar do Alpha Militar EFG", cat: "plano", img: "/Biblioteca militar/imgs/planos/plano-09.png" },
+{ titulo: "Plano 10 – Logística e Suprimentos", autor: "Equipe Militar do Alpha Militar EFG", cat: "plano", img: "/Biblioteca militar/imgs/planos/plano-10.png" },
+{ titulo: "Plano 11 – Operações Especiais", autor: "Equipe Militar do Alpha Militar EFG", cat: "plano", img: "/Biblioteca militar/imgs/planos/plano-11.png" },
+{ titulo: "Plano 12 – Missão e Propósito", autor: "Equipe Militar do Alpha Militar EFG", cat: "plano", img: "/Biblioteca militar/imgs/planos/plano-12.png" },
+  ];
+
+  const labels = { ebook: "E-book", livro: "Livro", plano: "Plano" };
+  const POR_PAGINA = 8;
+  let categoriaAtual = "todos";
+  let paginaAtual = 1;
+
+  function filtrados() {
+    return livros.filter(l => categoriaAtual === "todos" || l.cat === categoriaAtual);
+  }
+
+  function render() {
+    const grid = document.getElementById("grid");
+    const paginacao = document.getElementById("paginacao");
+    const lista = filtrados();
+    const total = Math.ceil(lista.length / POR_PAGINA);
+    const fatia = lista.slice((paginaAtual - 1) * POR_PAGINA, paginaAtual * POR_PAGINA);
+
+    if (fatia.length === 0) {
+      grid.innerHTML = '<div class="vazio">Nenhum item encontrado.</div>';
+    } else {
+      grid.innerHTML = fatia.map(l => `
+        <article class="bleachCard">
+          <img src="${l.img}" alt="${l.titulo}" loading="lazy"
+               onerror="this.style.background='#334155'">
+          <div class="card-body">
+            <span class="badge badge-${l.cat}">${labels[l.cat]}</span>
+            <h3>${l.titulo}</h3>
+            <p>${l.autor}</p>
+            <button class="abrirMaterialBtn" type="button" data-material-url="${l.link || l.url || l.arquivo || l.img}">
+              Abrir ${labels[l.cat]}
+            </button>
+          </div>
+        </article>`).join("");
+    }
+
+    grid.querySelectorAll(".abrirMaterialBtn").forEach(btn => {
+      btn.addEventListener("click", event => {
+        event.stopPropagation();
+        const destino = btn.dataset.materialUrl;
+        if (destino) window.open(destino, "_blank", "noopener,noreferrer");
+      });
+    });
+
+    paginacao.innerHTML = "";
+    if (total > 1) {
+      for (let i = 1; i <= total; i++) {
+        const btn = document.createElement("button");
+        btn.className = "deathNoteBtn" + (i === paginaAtual ? " active" : "");
+        btn.textContent = i;
+        btn.addEventListener("click", () => {
+          paginaAtual = i;
+          render();
+          document.getElementById("attackTitan").scrollIntoView({ behavior: "smooth" });
+        });
+        paginacao.appendChild(btn);
+      }
+    }
+  }
+
+  document.querySelectorAll(".filtroBtn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".filtroBtn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      categoriaAtual = btn.dataset.filtro;
+      paginaAtual = 1;
+      render();
+    });
+  });
+
+  render();
+</script>
+ 
+
+<footer class="footer-eb">
+
+  <div class="footer-top">
+    <img
+      src="/alpha-militar-site-firebase-completo/imgs/ff1c9a683b5c9a18466453bb0a6669ad-removebg-preview.png"
+      alt="Exército Brasileiro"
+      class="footer-eb-logo"
+    >
+  </div>
+
+  <div class="footer-links">
+
+    <div>
+     <a href="https://www.eb.mil.br/web/rp/junte-se-a-nos#militar-temporario"><h4>JUNTE-SE A NÓS</h4></a>
+      <a href="https://www.eb.mil.br/web/rp/militar-de-carreira">Militar de Carreira</a>
+      <a href="https://www.eb.mil.br/web/rp/colegio-militar">Colégio Militar</a>
+    </div>
+
+    <div>
+      <a href="https://www.eb.mil.br/web/rp/reserva-pro-ativa"><h4>RESERVA PRÓ-ATIVA</h4></a>
+      <a href="https://www.eb.mil.br/web/rp/reserva-pro-ativa/cadastre-se">Cadastre-se</a>
+      <a href="https://www.eb.mil.br/web/rp/informativo">Informativo</a>
+      <a href="https://www.eb.mil.br/web/rp/entre-em-contato">Entre em Contato</a>
+    </div>
+
+    <div>
+      <a href="https://www.eb.mil.br/web/rp/programa-conheca-o-seu-exercito"> <h4>PROGRAMA CONHEÇA O SEU EXÉRCITO</h4></a>
+      <a href="https://www.eb.mil.br/web/rp/programa-conheca-o-seu-exercito/atividades-de-2023">Atividades de 2023</a>
+      <a href="https://www.eb.mil.br/web/rp/programa-conheca-o-seu-exercito/atividades-de-2024">Atividades de 2024</a>
+      <a href="https://www.eb.mil.br/web/rp/programa-conheca-o-seu-exercito/atividades-de-2025">Atividades de 2025</a>
+    </div>
+
+    <div>
+      <a href="https://www.eb.mil.br/web/rp/junte-se-a-nos"><h4>RELAÇÕES PÚBLICAS</h4></a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <div>
+     
+
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fas fa-link"></i></a>
+      </div>
+    </div>
+
+    <div class="acesso-info">
+      <div class="info-icon">i</div>
+
+      <div>
+        <strong>Acesso à</strong>
+        <span>Informação</span>
+      </div>
+    </div>
+
+  </div>
+
+
+</footer>
+  <script src="/Biblioteca militar/ebook.js"></script>
+</body>
+</html>
