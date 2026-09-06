@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{if(img.dataset.localFallback)return;img.dataset.localFallback='true';img.src='../../imgs/ff1c9a683b5c9a18466453bb0a6669ad-removebg-preview.png';img.alt='Imagem indisponível — Alpha Militar'}, {once:true}))});

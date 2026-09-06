@@ -1,292 +1,44 @@
-// ===========================
-// MAPA
-// ===========================
+const mapa=L.map('map',{zoomControl:false}).setView([-14.235,-51.9253],4);
+L.control.zoom({position:'bottomright'}).addTo(mapa);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(mapa);
 
-const mapa = L.map("map").setView([-14.2350, -51.9253], 4);
+const layerMarcadores=L.layerGroup().addTo(mapa),lista=document.getElementById('listaInstituicoes'),pesquisa=document.getElementById('pesquisa'),contador=document.getElementById('contador'),listaVazia=document.getElementById('listaVazia'),btnLocalizacao=document.getElementById('btnLocalizacao'),routeStatus=document.getElementById('routeStatus'),filtroForca=document.getElementById('filtroForca'),filtroEstado=document.getElementById('filtroEstado'),btnCatalogoNacional=document.getElementById('btnCatalogoNacional'),routeActions=document.getElementById('routeActions'),routeSummary=document.getElementById('routeSummary'),googleMapsLink=document.getElementById('googleMapsLink'),wazeLink=document.getElementById('wazeLink');
+let instituicoes=[],rota=null,marcadorUsuario=null,circuloUsuario=null,localUsuario=null,watchId=null;
+const estadosBrasil=['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
+const iconeMilitar=L.divIcon({className:'military-marker',iconSize:[25,25],iconAnchor:[12,25],popupAnchor:[0,-25]});
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "&copy; OpenStreetMap"
-}).addTo(mapa);
+function mostrarStatus(mensagem,persistente=false){routeStatus.textContent=mensagem;routeStatus.hidden=false;if(!persistente)window.setTimeout(()=>routeStatus.hidden=true,4200)}
+function escaparHTML(valor){return String(valor).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function localizacaoTexto(local){const cidade=local.cidade&&local.cidade!=='Localidade não informada'?`${local.cidade} · ${local.estado}`:'';return cidade||`Coordenadas: ${Number(local.lat).toFixed(4)}, ${Number(local.lng).toFixed(4)}`}
+function imagemUnidade(local){return `<img src="${escaparHTML(local.imagem)}" alt="Imagem de ${escaparHTML(local.nome)}" onerror="this.onerror=null;this.src='../alpha-militar-site-firebase-completo/imgs/logo.jpg'">`}
+function popupInstituicao(local){return `<article class="popup-card">${imagemUnidade(local)}<small>${escaparHTML(local.tipo)}</small><h3>${escaparHTML(local.nome)}</h3><p>📍 ${escaparHTML(localizacaoTexto(local))}</p><button type="button" data-route-id="${local.id}">Traçar rota até esta unidade</button></article>`}
+function selecionarInstituicao(local,marcador,card){mapa.flyTo([local.lat,local.lng],13,{duration:.8});marcador.openPopup();document.querySelectorAll('.card').forEach(item=>item.classList.remove('is-selected'));if(card)card.classList.add('is-selected')}
+function sincronizarEstados(){const atual=filtroEstado.value,estados=[...new Set([...estadosBrasil,...instituicoes.map(item=>item.estado).filter(estado=>estado&&estado!=='BR')])].sort();filtroEstado.innerHTML='<option value="">Todo o Brasil</option>'+estados.map(estado=>`<option value="${escaparHTML(estado)}">${escaparHTML(estado)}</option>`).join('');filtroEstado.value=estados.includes(atual)?atual:''}
+function identificarForca(tags={}){const texto=[tags.operator,tags.branch,tags.name,tags['military:branch']].filter(Boolean).join(' ').toLowerCase();if(/marinha|naval|navy/.test(texto))return'Marinha do Brasil';if(/aeron[aá]utica|força a[ée]rea|air force|fab/.test(texto))return'Força Aérea Brasileira';if(/ex[eé]rcito|army/.test(texto))return'Exército Brasileiro';return'Instituição militar'}
+function normalizarOM(elemento,indice){const tags=elemento.tags||{},lat=elemento.lat??elemento.center?.lat,lng=elemento.lon??elemento.center?.lon,nome=tags.name||tags['name:pt']||'',texto=[nome,tags.operator,tags.branch,tags.military].filter(Boolean).join(' ').toLowerCase();if(!Number.isFinite(lat)||!Number.isFinite(lng)||!nome||/^(portaria|guarita|entrada|gate|military)$/i.test(nome)||/pol[ií]cia|socioeducativo|guarda municipal/.test(texto))return null;return{id:`osm-${elemento.type}-${elemento.id}`,nome,tipo:identificarForca(tags),cidade:tags['addr:city']||tags['addr:place']||tags['is_in:city']||'Localidade não informada',estado:tags['addr:state']||tags['is_in:state']||'BR',lat,lng,imagem:tags.image||tags['image:0']||'../alpha-militar-site-firebase-completo/imgs/logo.jpg',fonte:'OpenStreetMap'}}
+async function carregarCatalogoNacional(){const estado=filtroEstado.value;if(!estado){mostrarStatus('Selecione um estado antes de carregar instituições adicionais.');return}const chave=`alpha-militar-catalogo-oms-v3-${estado}`,salvo=localStorage.getItem(chave);if(salvo){try{adicionarCatalogo(JSON.parse(salvo));mostrarStatus(`Instituições de ${estado} carregadas do dispositivo.`);return}catch{localStorage.removeItem(chave)}}btnCatalogoNacional.disabled=true;btnCatalogoNacional.innerHTML='<span>◌</span> Carregando instituições...';mostrarStatus(`Consultando instituições públicas mapeadas em ${estado}...`,true);const consulta=`[out:json][timeout:35];area["ISO3166-2"="BR-${estado}"]->.areaEstado;(nwr["amenity"="military"](area.areaEstado);nwr["military"](area.areaEstado););out center tags;`;try{const resposta=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:new URLSearchParams({data:consulta})});if(!resposta.ok)throw new Error('consulta indisponível');const dados=await resposta.json(),catalogo=dados.elements.map(normalizarOM).filter(Boolean).map(item=>({...item,estado:item.estado==='BR'?estado:item.estado}));localStorage.setItem(chave,JSON.stringify(catalogo));adicionarCatalogo(catalogo);mostrarStatus(`${catalogo.length} instituições públicas mapeadas adicionadas em ${estado}.`)}catch{mostrarStatus(`Não foi possível consultar ${estado} agora. Tente novamente mais tarde.`)}finally{btnCatalogoNacional.disabled=false;btnCatalogoNacional.innerHTML='<span>↻</span> Atualizar instituições do estado'}}
 
-// ===========================
-// VARIÁVEIS
-// ===========================
+window.addEventListener('load',()=>requestAnimationFrame(()=>mapa.invalidateSize()));
+window.addEventListener('resize',()=>mapa.invalidateSize());
+function adicionarCatalogo(catalogo){const ids=new Set(instituicoes.map(item=>String(item.id)));instituicoes.push(...catalogo.filter(item=>!ids.has(String(item.id))));sincronizarEstados();atualizarLista(pesquisa.value)}
 
-let instituicoes = [];
-let rota = null;
-
-const layerMarcadores = L.layerGroup().addTo(mapa);
-
-let marcadorUsuario = null;
-let circuloUsuario = null;
-
-// ===========================
-// LOCALIZAÇÃO DO USUÁRIO
-// ===========================
-
-function localizarUsuario() {
-
-    if (!navigator.geolocation) {
-        alert("Seu navegador não suporta geolocalização.");
-        return;
-    }
-
-    navigator.geolocation.watchPosition(
-
-        function(pos){
-
-            const lat = pos.coords.latitude;
-            const lng = pos.coords.longitude;
-
-            const local = [lat, lng];
-
-            if(marcadorUsuario){
-
-                marcadorUsuario.setLatLng(local);
-                circuloUsuario.setLatLng(local);
-                circuloUsuario.setRadius(pos.coords.accuracy);
-
-            }else{
-
-                marcadorUsuario = L.marker(local)
-                    .addTo(mapa)
-                    .bindPopup("<b>📍 Você está aqui</b>");
-
-                circuloUsuario = L.circle(local,{
-                    radius:pos.coords.accuracy,
-                    color:"#0066ff",
-                    fillColor:"#3399ff",
-                    fillOpacity:0.20
-                }).addTo(mapa);
-
-                mapa.setView(local,15);
-
-            }
-
-        },
-
-        function(){
-
-            alert("Não foi possível localizar você.");
-
-        },
-
-        {
-            enableHighAccuracy:true,
-            timeout:10000,
-            maximumAge:0
-        }
-
-    );
-
+function atualizarLista(termo=''){
+ const busca=termo.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+ const filtradas=instituicoes.filter(local=>[local.nome,local.cidade,local.estado,local.tipo].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(busca)&&(!filtroForca.value||local.tipo.includes(filtroForca.value))&&(!filtroEstado.value||local.estado===filtroEstado.value));
+ layerMarcadores.clearLayers();lista.innerHTML='';contador.textContent=`${filtradas.length} ${filtradas.length===1?'instituição':'instituições'}`;listaVazia.hidden=filtradas.length!==0;
+ filtradas.forEach(local=>{
+  const marcador=L.marker([local.lat,local.lng],{icon:iconeMilitar}).addTo(layerMarcadores);marcador.bindPopup(popupInstituicao(local),{maxWidth:250});
+  marcador.on('popupopen',()=>{const botao=document.querySelector(`[data-route-id="${local.id}"]`);if(botao)botao.addEventListener('click',()=>tracarRota(local),{once:true})});
+  const card=document.createElement('article');card.className='card';card.tabIndex=0;
+  card.innerHTML=`${imagemUnidade(local)}<div class="card-body"><span class="force-tag">${escaparHTML(local.tipo)}</span><h3>${escaparHTML(local.nome)}</h3><p class="unit-location"><span>⌖</span>${escaparHTML(localizacaoTexto(local))}</p><button class="route-button" type="button">Traçar rota →</button></div>`;
+  card.addEventListener('click',evento=>{if(!evento.target.closest('.route-button'))selecionarInstituicao(local,marcador,card)});
+  card.addEventListener('keydown',evento=>{if(evento.key==='Enter'||evento.key===' '){evento.preventDefault();selecionarInstituicao(local,marcador,card)}});
+  card.querySelector('.route-button').addEventListener('click',evento=>{evento.stopPropagation();tracarRota(local)});lista.appendChild(card);
+ })
 }
-
-// ===========================
-// CARREGAR JSON
-// ===========================
-
-fetch("mapa.json")
-
-.then(response=>response.json())
-
-.then(dados=>{
-
-    instituicoes=dados;
-
-    atualizarLista("");
-
-    localizarUsuario();
-
-});
-
-// ===========================
-// PESQUISA
-// ===========================
-
-const pesquisa=document.getElementById("pesquisa");
-
-pesquisa.addEventListener("input",function(){
-
-    atualizarLista(this.value);
-
-});
-
-// ===========================
-// LISTA
-// ===========================
-
-function atualizarLista(texto){
-
-    texto=texto.toLowerCase();
-
-    layerMarcadores.clearLayers();
-
-    const lista=document.getElementById("listaInstituicoes");
-
-    lista.innerHTML="";
-
-    instituicoes
-
-    .filter(local=>{
-
-        return(
-
-            local.nome.toLowerCase().includes(texto)||
-
-            local.cidade.toLowerCase().includes(texto)||
-
-            local.tipo.toLowerCase().includes(texto)||
-
-            local.estado.toLowerCase().includes(texto)
-
-        );
-
-    })
-
-    .forEach(local=>{
-
-        const marcador=L.marker([local.lat,local.lng]).addTo(layerMarcadores);
-
-        marcador.bindPopup(`
-
-            <div style="width:220px">
-
-                <img src="${local.imagem}"
-                style="width:100%;height:120px;object-fit:cover;border-radius:8px;">
-
-                <h3>${local.nome}</h3>
-
-                <p>${local.tipo}</p>
-
-                <p>${local.cidade} - ${local.estado}</p>
-
-                <button
-                style="
-                width:100%;
-                padding:10px;
-                background:#2e7d32;
-                color:white;
-                border:none;
-                border-radius:6px;
-                cursor:pointer;
-                "
-                onclick="tracarRota(${local.lat},${local.lng})">
-
-                Traçar rota
-
-                </button>
-
-            </div>
-
-        `);
-
-        const card=document.createElement("div");
-
-        card.className="card";
-
-        card.innerHTML=`
-
-            <img src="${local.imagem}"
-            style="width:100%;height:120px;object-fit:cover;border-radius:8px;">
-
-            <h3>${local.nome}</h3>
-
-            <p>${local.tipo}</p>
-
-            <p>${local.cidade} - ${local.estado}</p>
-
-        `;
-
-        card.onclick=()=>{
-
-            mapa.setView([local.lat,local.lng],15);
-
-            marcador.openPopup();
-
-        };
-
-        lista.appendChild(card);
-
-    });
-
-}
-
-// ===========================
-// ROTA
-// ===========================
-
-function tracarRota(lat,lng){
-
-    if(!navigator.geolocation){
-
-        alert("Geolocalização não suportada.");
-
-        return;
-
-    }
-
-    navigator.geolocation.getCurrentPosition(function(pos){
-
-        const origem=L.latLng(
-            pos.coords.latitude,
-            pos.coords.longitude
-        );
-
-        const destino=L.latLng(lat,lng);
-
-        if(rota){
-
-            mapa.removeControl(rota);
-
-        }
-
-        rota=L.Routing.control({
-
-            waypoints:[
-                origem,
-                destino
-            ],
-
-            routeWhileDragging:false,
-
-            addWaypoints:false,
-
-            draggableWaypoints:false,
-
-            fitSelectedRoutes:true,
-
-            showAlternatives:false,
-
-            createMarker:function(i,wp){
-
-                return L.marker(wp.latLng);
-
-            }
-
-        }).addTo(mapa);
-
-    });
-
-}
-
-// ===========================
-// BOTÃO MINHA LOCALIZAÇÃO
-// ===========================
-
-const btn=document.getElementById("btnLocalizacao");
-
-if(btn){
-
-    btn.addEventListener("click",()=>{
-
-        if(marcadorUsuario){
-
-            mapa.setView(marcadorUsuario.getLatLng(),16);
-
-            marcadorUsuario.openPopup();
-
-        }
-
-    });
-
-}
+function atualizarMarcadorUsuario(posicao,centralizar=false){const{latitude,longitude,accuracy}=posicao.coords;localUsuario=L.latLng(latitude,longitude);if(marcadorUsuario){marcadorUsuario.setLatLng(localUsuario);circuloUsuario.setLatLng(localUsuario).setRadius(accuracy)}else{marcadorUsuario=L.circleMarker(localUsuario,{radius:8,color:'#fff',weight:3,fillColor:'#1b73e8',fillOpacity:1}).addTo(mapa).bindPopup('<strong>Sua localização</strong>');circuloUsuario=L.circle(localUsuario,{radius:accuracy,color:'#1b73e8',weight:1,fillColor:'#1b73e8',fillOpacity:.12}).addTo(mapa)}if(centralizar){mapa.flyTo(localUsuario,15,{duration:.8});marcadorUsuario.openPopup()}}
+function localizarUsuario(centralizar=true){if(!navigator.geolocation){mostrarStatus('Este navegador não oferece geolocalização.');return}btnLocalizacao.disabled=true;btnLocalizacao.innerHTML='<span>◌</span> Localizando...';navigator.geolocation.getCurrentPosition(posicao=>{atualizarMarcadorUsuario(posicao,centralizar);if(watchId===null)watchId=navigator.geolocation.watchPosition(posicao=>atualizarMarcadorUsuario(posicao),()=>{},{enableHighAccuracy:true,maximumAge:30000});btnLocalizacao.disabled=false;btnLocalizacao.innerHTML='<span>◎</span> Minha localização';mostrarStatus('Localização atualizada.')},()=>{btnLocalizacao.disabled=false;btnLocalizacao.innerHTML='<span>◎</span> Usar minha localização';mostrarStatus('Não foi possível acessar sua localização. Verifique a permissão do navegador.')},{enableHighAccuracy:true,timeout:12000,maximumAge:30000})}
+function tracarRota(local){if(!navigator.geolocation){mostrarStatus('Geolocalização não é suportada neste navegador.');return}mostrarStatus(`Obtendo sua posição para a rota até ${local.nome}...`,true);navigator.geolocation.getCurrentPosition(posicao=>{atualizarMarcadorUsuario(posicao);if(rota)mapa.removeControl(rota);rota=L.Routing.control({waypoints:[localUsuario,L.latLng(local.lat,local.lng)],routeWhileDragging:false,addWaypoints:false,draggableWaypoints:false,fitSelectedRoutes:true,showAlternatives:true,lineOptions:{styles:[{color:'#43876f',opacity:.95,weight:7}]},altLineOptions:{styles:[{color:'#d6b64c',opacity:.62,weight:5}]},createMarker:()=>null}).addTo(mapa);rota.on('routesfound',evento=>{const principal=evento.routes[0],metros=principal.summary.totalDistance,segundos=principal.summary.totalTime,km=(metros/1000).toFixed(metros>10000?0:1).replace('.',','),minutos=Math.round(segundos/60),duracao=minutos>=60?`${Math.floor(minutos/60)}h ${minutos%60}min`:`${minutos} min`;routeSummary.textContent=`${km} km · ${duracao} · ${local.nome}`;googleMapsLink.href=`https://www.google.com/maps/dir/?api=1&origin=${localUsuario.lat},${localUsuario.lng}&destination=${local.lat},${local.lng}&travelmode=driving`;wazeLink.href=`https://www.waze.com/ul?ll=${local.lat}%2C${local.lng}&navigate=yes`;routeActions.hidden=false;mostrarStatus(`Rota pronta: ${km} km em cerca de ${duracao}. Escolha uma alternativa no painel da rota.`)});rota.on('routingerror',()=>mostrarStatus('Não foi possível calcular a rota. Tente novamente em alguns instantes.'))},()=>mostrarStatus('Autorize a localização para traçar uma rota.'),{enableHighAccuracy:true,timeout:12000,maximumAge:30000})}
+
+pesquisa.addEventListener('input',evento=>atualizarLista(evento.target.value));filtroForca.addEventListener('change',()=>atualizarLista(pesquisa.value));filtroEstado.addEventListener('change',()=>atualizarLista(pesquisa.value));btnLocalizacao.addEventListener('click',()=>localizarUsuario());btnCatalogoNacional.addEventListener('click',carregarCatalogoNacional);
+fetch('mapa.json').then(resposta=>{if(!resposta.ok)throw new Error('Erro');return resposta.json()}).then(dados=>{instituicoes=dados;sincronizarEstados();atualizarLista()}).catch(()=>{listaVazia.hidden=false;listaVazia.textContent='Não foi possível carregar as instituições do mapa.';mostrarStatus('Erro ao carregar os dados do mapa.')});

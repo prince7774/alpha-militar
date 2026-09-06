@@ -3,6 +3,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
   onAuthStateChanged,
   signOut
 } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
@@ -217,15 +218,40 @@ async function entrarEmailSenha(e) {
     mostrarToast('✅ Login realizado com sucesso');
     fecharLogin();
   } catch (erroLogin) {
-    try {
-      const credential = await createUserWithEmailAndPassword(auth, email, senha);
-      await salvarUsuario(credential.user);
-      mostrarToast('✅ Conta criada e login realizado');
-      fecharLogin();
-    } catch (erroCadastro) {
-      console.error(erroCadastro);
-      mostrarToast('❌ Erro no login. Confira email/senha ou regras do Firebase.');
+    if (erroLogin.code === 'auth/user-not-found') {
+      try {
+        const credential = await createUserWithEmailAndPassword(auth, email, senha);
+        await salvarUsuario(credential.user);
+        mostrarToast('✅ Conta criada e login realizado');
+        fecharLogin();
+      } catch (erroCadastro) {
+        console.error(erroCadastro);
+        mostrarToast('❌ Não foi possível criar sua conta. Use uma senha de pelo menos 6 caracteres.');
+      }
+      return;
     }
+    if (erroLogin.code === 'auth/wrong-password' || erroLogin.code === 'auth/invalid-credential') {
+      mostrarToast('❌ Email ou senha incorretos.');
+      return;
+    }
+    console.error(erroLogin);
+    mostrarToast('❌ Não foi possível entrar agora. Tente novamente.');
+  }
+}
+
+async function recuperarSenha() {
+  const email = $('emailLogin').value.trim();
+  if (!email) {
+    mostrarToast('Informe seu email para recuperar a senha.');
+    $('emailLogin').focus();
+    return;
+  }
+  try {
+    await sendPasswordResetEmail(auth, email);
+    mostrarToast('✅ Enviamos um link de recuperação para seu email.');
+  } catch (erro) {
+    console.error(erro);
+    mostrarToast('❌ Não foi possível enviar o link. Confira o email informado.');
   }
 }
 

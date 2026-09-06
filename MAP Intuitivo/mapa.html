@@ -1,57 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mapa Militar</title>
-
-<!-- Leaflet -->
-<link rel="stylesheet"
-href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-
-<!-- Routing Machine -->
-<link rel="stylesheet"
-href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css"/>
-
-<link rel="stylesheet" href="mapa.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10141f">
+  <meta name="description" content="Mapa de instituições militares brasileiras com rotas e filtros por força e estado.">
+  <title>MAP Intuitivo | Alpha Militar</title>
+  <style>.skip-link{position:fixed;left:14px;top:-60px;z-index:2000;padding:12px 16px;border-radius:10px;background:#43876f;color:#fff;font-weight:800}.skip-link:focus{top:14px}</style>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css">
+  <link rel="stylesheet" href="mapa.css">
 </head>
-
 <body>
-
-<div class="container">
-
-    <aside class="sidebar">
-
-        <h2>Instituições Militares</h2>
-
-        <input
-            type="text"
-            id="pesquisa"
-            placeholder="Pesquisar instituição..."
-        >
-
-        <button id="btnLocalizacao">
-            📍 Minha localização
-        </button>
-
-        <div id="listaInstituicoes"></div>
-
+  <a class="skip-link" href="#map">Pular para o mapa</a>
+  <div class="site-topbar">
+    <span>Alpha Militar</span>
+    <span>Mapa de instituições</span>
+    <span><i class="status-dot"></i>Sistema de navegação ativo</span>
+  </div>
+  <header class="site-header">
+    <a class="site-logo" href="../alpha-militar-site-firebase-completo/alpha-militar-site/index.html" aria-label="Voltar ao início">
+      <img src="../alpha-militar-site-firebase-completo/imgs/ff1c9a683b5c9a18466453bb0a6669ad-removebg-preview.png" alt="">
+      <span><strong>Alpha Militar</strong><small>Preparação &amp; Liderança</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Navegação principal">
+      <a href="../alpha-militar-site-firebase-completo/alpha-militar-site/index.html">Início</a>
+      <a class="active" href="mapa.html">Mapa intuitivo</a>
+    </nav>
+    <a class="site-back" href="../alpha-militar-site-firebase-completo/alpha-militar-site/index.html">Voltar</a>
+  </header>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Painel de instituições militares">
+      <header class="brand">
+        <img class="eb-mark" src="../alpha-militar-site-firebase-completo/imgs/ff1c9a683b5c9a18466453bb0a6669ad-removebg-preview.png" alt="Símbolo do Exército Brasileiro">
+      </header>
+      <div class="command-panel">
+        <label class="search-field" for="pesquisa"><span>⌕</span><input type="search" id="pesquisa" placeholder="Buscar cidade, força ou unidade" autocomplete="off"></label>
+        <div class="filter-row">
+          <select id="filtroForca" aria-label="Filtrar por força"><option value="">Todas as forças</option><option value="Exército">Exército</option><option value="Marinha">Marinha</option><option value="Força Aérea">Força Aérea</option></select>
+          <select id="filtroEstado" aria-label="Filtrar por estado"><option value="">Todo o Brasil</option></select>
+        </div>
+        <button id="btnLocalizacao" class="primary-action" type="button"><span>◎</span> Usar minha localização</button>
+        <button id="btnCatalogoNacional" class="secondary-action" type="button"><span>＋</span> Carregar instituições do estado</button>
+      </div>
+      <div class="list-heading"><div><p class="eyebrow">UNIDADES DISPONÍVEIS</p><strong id="contador">0 instituições</strong></div><span class="live-dot" title="Mapa ativo"></span></div>
+      <div id="listaInstituicoes" class="institution-list" aria-live="polite"></div>
+      <p id="listaVazia" class="empty-state" hidden>Nenhuma instituição encontrada. Tente outro termo.</p>
+      <footer class="sidebar-footer">Dados cartográficos: OpenStreetMap · Rotas: OSRM</footer>
     </aside>
-
-    <main>
-
-        <div id="map"></div>
-
+    <main class="map-area">
+      <div id="map" aria-label="Mapa de instituições militares"></div>
+      <div id="routeStatus" class="route-status" role="status" aria-live="polite" hidden></div>
+      <div id="routeActions" class="route-actions" hidden>
+        <strong id="routeSummary">Rota selecionada</strong>
+        <div><a id="googleMapsLink" target="_blank" rel="noopener">Google Maps ↗</a><a id="wazeLink" target="_blank" rel="noopener">Waze ↗</a></div>
+      </div>
     </main>
-
-</div>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
-
-<script src="mapa.js"></script>
-
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+  <script src="mapa.js"></script>
 </body>
 </html>

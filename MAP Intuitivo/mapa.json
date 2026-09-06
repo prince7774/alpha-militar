@@ -1,32 +1,5 @@
 [
-  {
-    "id": 1,
-    "nome": "23º Batalhão de Caçadores",
-    "tipo": "Exército",
-    "cidade": "Fortaleza",
-    "estado": "CE",
-    "lat": -3.7309,
-    "lng": -38.5267,
-    "imagem": "img/23bc.jpg"
-  },
-  {
-    "id": 2,
-    "nome": "Base Aérea de Fortaleza",
-    "tipo": "Força Aérea",
-    "cidade": "Fortaleza",
-    "estado": "CE",
-    "lat": -3.7763,
-    "lng": -38.5326,
-    "imagem": "img/fab.jpg"
-  },
-  {
-    "id": 3,
-    "nome": "Capitania dos Portos do Ceará",
-    "tipo": "Marinha",
-    "cidade": "Fortaleza",
-    "estado": "CE",
-    "lat": -3.7167,
-    "lng": -38.5065,
-    "imagem": "img/marinha.jpg"
-  }
+  {"id":1,"nome":"23º Batalhão de Caçadores","tipo":"Exército Brasileiro","cidade":"Fortaleza","estado":"CE","lat":-3.7309,"lng":-38.5267,"imagem":"../alpha-militar-site-firebase-completo/imgs/CB.png"},
+  {"id":2,"nome":"Base Aérea de Fortaleza","tipo":"Força Aérea Brasileira","cidade":"Fortaleza","estado":"CE","lat":-3.7763,"lng":-38.5326,"imagem":"../alpha-militar-site-firebase-completo/imgs/Academia_da_Força_Aérea.gif"},
+  {"id":3,"nome":"Capitania dos Portos do Ceará","tipo":"Marinha do Brasil","cidade":"Fortaleza","estado":"CE","lat":-3.7167,"lng":-38.5065,"imagem":"../alpha-militar-site-firebase-completo/imgs/logo%20alpha.png"}
 ]
