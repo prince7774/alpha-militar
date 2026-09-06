@@ -1,0 +1,22 @@
+# Ambientes e dependências locais
+.venv/
+venv/
+node_modules/
+
+# Variáveis e credenciais locais
+.env
+.env.*
+!.env.example
+
+# Cache e arquivos gerados
+__pycache__/
+*.py[cod]
+.pytest_cache/
+dist/
+build/
+coverage/
+
+# Arquivos do sistema e registros
+.DS_Store
+Thumbs.db
+*.log

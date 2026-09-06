@@ -3,13 +3,13 @@ import { getAuth, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAeweqZHaJICeCnHIJrfQ9-n0DOYdpwUuk",
-  authDomain: "ta-seguro-site.firebaseapp.com",
-  projectId: "ta-seguro-site",
-  storageBucket: "ta-seguro-site.firebasestorage.app",
-  messagingSenderId: "45224502893",
-  appId: "1:45224502893:web:af0cbb85fcfe2895518164",
-  measurementId: "G-R7XZ76WWF3"
+  apiKey: "AIzaSyBAOfWfcnyS6jdISj6QEIp3yXkIrppqrxE",
+  authDomain: "projeto-militar-6d2cc.firebaseapp.com",
+  projectId: "projeto-militar-6d2cc",
+  storageBucket: "projeto-militar-6d2cc.firebasestorage.app",
+  messagingSenderId: "954807787945",
+  appId: "1:954807787945:web:1ae929a592e111a8c3a4b8",
+  measurementId: "G-CB61XCMF7R"
 };
 
 const app = initializeApp(firebaseConfig);

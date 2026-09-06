@@ -8,15 +8,10 @@ import {
   signOut
 } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 import {
-  collection,
   doc,
   setDoc,
   getDoc,
-  onSnapshot,
-  serverTimestamp,
-  query,
-  orderBy,
-  limit
+  serverTimestamp
 } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 
 const $ = id => document.getElementById(id);
@@ -41,9 +36,6 @@ let perf = 84;
 let doneTests = 5;
 const levels = ['Recruta', 'Soldado', 'Cabo', 'Sargento', 'Oficial'];
 let levelIndex = 2;
-let firebaseOnlineActive = false;
-let firebaseRankingActive = false;
-let firebaseAvisosActive = false;
 
 function updateClock() {
   const now = new Date();
@@ -60,20 +52,6 @@ function setText(id, value) {
 }
 
 function realtime() {
-  if (!firebaseOnlineActive) {
-    online = 0;
-  }
-
-  if (!firebaseRankingActive) {
-    tests += Math.random() > .55 ? 1 : 0;
-    paper += Math.random() > .7 ? 4 : 0;
-    perf = Math.min(98, Math.max(62, perf + (Math.random() > .55 ? 1 : -1)));
-    studyHours = Math.min(40, studyHours + (Math.random() > .72 ? 1 : 0));
-    doneTests = Math.min(30, doneTests + (Math.random() > .82 ? 1 : 0));
-    if (doneTests > 8) levelIndex = 3;
-    if (doneTests > 16) levelIndex = 4;
-  }
-
   setText('onlineUsers', online);
   setText('panelOnline', online);
   setText('testsToday', tests);
@@ -116,7 +94,7 @@ function mostrarToast(texto) {
   setTimeout(() => toast.classList.remove('active'), 3200);
 }
 setInterval(() => {
-  if (!firebaseAvisosActive) mostrarToast(alerts[Math.floor(Math.random() * alerts.length)]);
+  mostrarToast(alerts[Math.floor(Math.random() * alerts.length)]);
 }, 9000);
 
 const searchInput = $('searchInput');
@@ -188,16 +166,11 @@ async function salvarUsuario(user) {
   await setDoc(doc(db, 'usuarios', user.uid), {
     nome,
     email: user.email || '',
+    foto: user.photoURL || '',
     patente: 'Cadete',
     xp: 100,
     nivel: 1,
-    atualizadoEm: serverTimestamp()
-  }, { merge: true });
-
-  await setDoc(doc(db, 'usuariosOnline', user.uid), {
-    nome,
-    email: user.email || '',
-    ultimoAcesso: 'online',
+    criadoEm: serverTimestamp(),
     atualizadoEm: serverTimestamp()
   }, { merge: true });
 }
@@ -263,19 +236,17 @@ async function entrarComGoogle() {
     fecharLogin();
   } catch (erro) {
     console.error(erro);
-    mostrarToast('❌ Não foi possível entrar com Google.');
+    if (erro.code === 'auth/popup-closed-by-user') return;
+    if (erro.code === 'auth/unauthorized-domain') {
+      mostrarToast('❌ Este endereço ainda não foi autorizado no Firebase.');
+      return;
+    }
+    mostrarToast('❌ Não foi possível entrar com Google. Tente novamente.');
   }
 }
 
 async function sairDaConta() {
   try {
-    const user = auth.currentUser;
-    if (user) {
-      await setDoc(doc(db, 'usuariosOnline', user.uid), {
-        ultimoAcesso: 'offline',
-        atualizadoEm: serverTimestamp()
-      }, { merge: true });
-    }
     await signOut(auth);
     mostrarToast('Você saiu da conta.');
   } catch (erro) {
@@ -309,65 +280,6 @@ onAuthStateChanged(auth, async user => {
 
 
 
-function conectarFirestoreTempoReal() {
-  try {
-    onSnapshot(collection(db, 'usuariosOnline'), snapshot => {
-      firebaseOnlineActive = true;
-      let count = 0;
-      snapshot.forEach(docSnap => {
-        const user = docSnap.data();
-        if ((user.ultimoAcesso || '').toString().toLowerCase() === 'online') count++;
-      });
-      online = count;
-      setText('onlineUsers', online);
-      setText('panelOnline', online);
-    });
-
-    onSnapshot(collection(db, 'avisos'), snapshot => {
-      firebaseAvisosActive = true;
-      snapshot.docChanges().forEach(change => {
-        if (change.type === 'added') {
-          const aviso = change.doc.data();
-          if (aviso.titulo) mostrarToast(' ' + aviso.titulo);
-        }
-      });
-    });
-
-    onSnapshot(query(collection(db, 'ranking'), orderBy('xp', 'desc'), limit(1)), snapshot => {
-      firebaseRankingActive = true;
-      snapshot.forEach(docSnap => {
-        const rank = docSnap.data();
-        if (rank.xp) {
-          doneTests = Math.max(5, Math.floor(Number(rank.xp) / 300));
-          if (rank.xp >= 1500) levelIndex = 3;
-          if (rank.xp >= 2500) levelIndex = 4;
-          realtime();
-        }
-      });
-    });
-
-    onSnapshot(collection(db, 'simulados'), snapshot => {
-      let totalQuestoes = 0;
-      let ativos = 0;
-      snapshot.forEach(docSnap => {
-        const sim = docSnap.data();
-        const ativo = sim.ativo === true || sim.ATIVO === true;
-        if (ativo) ativos++;
-        totalQuestoes += Number(sim.questoes || 0);
-      });
-      if (ativos > 0) {
-        tests = Math.max(tests, ativos);
-        setText('testsToday', tests);
-        setText('megaTests', tests);
-      }
-    });
-  } catch (erro) {
-    console.error('Erro ao conectar Firestore:', erro);
-    mostrarToast(' Firestore não conectou. Confira as regras do banco.');
-  }
-}
-conectarFirestoreTempoReal();
-
 document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharLogin(); });
 document.addEventListener('click', e => { const modal = $('loginModal'); if (e.target === modal) fecharLogin(); });
 
@@ -377,6 +289,7 @@ window.abrirLogin = abrirLogin;
 window.fecharLogin = fecharLogin;
 window.mostrarSenha = mostrarSenha;
 window.entrarEmailSenha = entrarEmailSenha;
+window.recuperarSenha = recuperarSenha;
 window.entrarComGoogle = entrarComGoogle;
 window.sairDaConta = sairDaConta;
 
